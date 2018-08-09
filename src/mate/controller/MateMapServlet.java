@@ -2,6 +2,7 @@ package mate.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,17 +11,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mate.dto.MateDTO;
+
 @WebServlet(name = "mt/map", urlPatterns = { "/mt/map.do" })
 public class MateMapServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=euc-kr");
-		response.setHeader("cache-control", "no-cache, no-store");
-		String mapinfo = request.getParameter("result");
-		System.out.println(mapinfo);
-		request.setAttribute("mapinfo", mapinfo);
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/mate/mate_readview.jsp");
-		rd.forward(request, response);
+		doGet(request, response);
+			
 		
+			//1. ¿¸√º∏ÆΩ∫∆Æ ø°º≠ loc, map ¡§∫∏∏∏
+			//2. json∆ƒΩÃ
+			//3. ∏ ø° ª—∑¡¡‹
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			ArrayList<MateDTO> list = (ArrayList<MateDTO>) request.getAttribute("dtolist");
+			
+			for (int i = 0; i < list.size(); i++) {
+				list.get(i).getMt_map();
+				list.get(i).getMt_loc();
+				
+			}
+			
+			
 	}
 
+	
 }

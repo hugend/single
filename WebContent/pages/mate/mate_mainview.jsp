@@ -29,6 +29,7 @@
 			<%} %>
 			
 			<div>
+				<a><button class="btn btn-primary">테스트</button></a>
 				<button class="btn btn-primary" onclick="panTo()">내위치로</button>
 				<a href="/single/pages/mate/mate_writeview.jsp"><button class="btn btn-danger">소모임 만들기</button></a>
 			</div>

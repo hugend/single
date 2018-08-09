@@ -22,12 +22,13 @@ public class MateInsertServlet extends HttpServlet {
 		String mt_title = request.getParameter("mt_title");
 		String mt_ctg = request.getParameter("mt_ctg");
 		String mt_map = request.getParameter("mt_map");
+		String mt_loc = request.getParameter("mt_loc");
 		String mt_cnt = request.getParameter("mt_cnt");
 		String mt_txt = request.getParameter("mt_txt");
 		String mt_img = request.getParameter("mt_img");
 		String mt_file = request.getParameter("mt_file");
 		
-		MateDTO dto = new MateDTO(mt_title, mt_txt, mt_file, mt_map, mt_ctg, Integer.parseInt(mt_cnt), me_id, mt_img);
+		MateDTO dto = new MateDTO(mt_title, mt_txt, mt_file, mt_map, mt_loc, mt_ctg, Integer.parseInt(mt_cnt), me_id, mt_img);
 		System.out.println(dto);
 		MateService service = new MateServiceImpl();
 		int result = service.insert_mt(dto);

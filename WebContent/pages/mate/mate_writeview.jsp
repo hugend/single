@@ -59,6 +59,8 @@
 						<td>
 							<a href='#' id="ajaxbtn" onclick="map()">
 							지역선택</a>
+							<input type="hidden" name="mt_lat" id="latval"/>
+							<input type="hidden" name="mt_lng" id="lngval"/>
 							<input type="text" name="mt_map" id="result">
 							
 					 
@@ -88,7 +90,7 @@
 				</table>
 				<div id="btndiv">
 					<button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
-					<button type="button" class="btn btn-danger">등록</button>
+					<button type="submit" class="btn btn-danger">등록</button>
 				</div>	
 			</form>
 

@@ -17,7 +17,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import mate.dto.MateDTO;
-import mate.service.MateMapMaker;
 import mate.service.MateService;
 import mate.service.MateServiceImpl;
 
@@ -51,20 +50,22 @@ public class MateMapServlet extends HttpServlet {
 			}
 			myjson.put("positions", pos);
 			
+			ServletContext context = this.getServletContext();
 			String file1 =getServletContext().getRealPath("common/json/location.json");
-			String file =getServletContext().getRealPath("/")+"common\\json\\json_test1.json";
+			String file =getServletContext().getRealPath("/")+"common\\json\\json_test2.json";
+			String realpath = context.getRealPath("/common/json/json_test3.json");
 			String filepath = request.getContextPath();
-			System.out.println(file);
+			System.out.println(realpath);
 			
 			
 			System.out.println(myjson.toJSONString());
 //			FileWriter fw = new FileWriter("c:\\temp\\test.json", false);
-			FileWriter fw = new FileWriter(file, false);
+			FileWriter fw = new FileWriter(realpath, false);
 			fw.write(myjson.toJSONString());
 			fw.flush();
 			fw.close();
 			
-			request.setAttribute("jsonpath", file);
+			request.setAttribute("jsonpath", realpath);
 			RequestDispatcher rd = request.getRequestDispatcher("/pages/mate/mate_mainview.jsp");
 			rd.forward(request, response);
 			

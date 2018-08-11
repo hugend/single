@@ -27,7 +27,8 @@ public class MateListServlet extends HttpServlet {
 		System.out.println("소그룹리스트");
 		
 		request.setAttribute("dtolist", dtolist);
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/mate/mate_mainview.jsp");
+		//RequestDispatcher rd = request.getRequestDispatcher("/pages/mate/mate_mainview.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/mt/map.do");
 		rd.forward(request, response);
 	
 	}

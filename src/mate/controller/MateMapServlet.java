@@ -60,7 +60,7 @@ public class MateMapServlet extends HttpServlet {
 			
 			System.out.println(myjson.toJSONString());
 //			FileWriter fw = new FileWriter("c:\\temp\\test.json", false);
-			FileWriter fw = new FileWriter(realpath, false);
+			FileWriter fw = new FileWriter("c:\\temp\\json_test4.json", false);
 			fw.write(myjson.toJSONString());
 			fw.flush();
 			fw.close();

@@ -10,14 +10,15 @@
 	<link rel="stylesheet" href="/single/common/styles/vs/vspost.css">
 </head>
 <body>
-<%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); %>
+	<%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); %>
+	
 	<div class="wrapper row1">
 		<jsp:include page="/pages/template/Topbar.jsp" />
 	</div>
 
 	<div class="wrapper row2">
 
-		<div class="container" style="width: 50%">
+		<div class="container" id="post">
 		
 			<%if(loginUser!=null){ %>
 			<jsp:include page="/pages/template/floatingmenu.jsp" />
@@ -29,7 +30,7 @@
 						<label for="title">Title</label>
 					</div>
 					<div class="col-75">
-						<input type="text" id="vs_title" name="vs_title" placeholder="力格">
+						<input type="text" id="vs_title" name="vs_title" placeholder="力格" required="required">
 					</div>
 				</div>
 
@@ -38,7 +39,7 @@
 						<label for="optionA">A 急琶</label>
 					</div>
 					<div class="col-75">
-						<input type="text" id="vs_optionA" name="vs_optionA" placeholder="A">
+						<input type="text" id="vs_optionA" name="vs_optionA" placeholder="A" required="required">
 					</div>
 				</div>
 
@@ -47,7 +48,7 @@
 						<label for="optionB">B 急琶</label>
 					</div>
 					<div class="col-75">
-						<input type="text" id="vs_optionB" name="vs_optionB" placeholder="B">
+						<input type="text" id="vs_optionB" name="vs_optionB" placeholder="B" required="required">
 					</div>
 				</div>
 

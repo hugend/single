@@ -6,9 +6,21 @@
 
 #bar{
 	width: 100%;
-	position: relative;
-	left: 25%;
+	float: center;
+	margin: 0px auto;
 }
+
+.button{
+	background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    background-color:#EC4D48;
+    margin: 5px;
+	}
 
 .btnA{
   padding: 15px 25px;
@@ -51,7 +63,7 @@
 #post {
 	position: relative;
 	border-radius: 5px;
-	padding: 20px 0 30px 0;
+	padding: 20px;
 	font-family: °íµñ;
 	border-style: dotted;
 	margin: 20px;
@@ -63,15 +75,13 @@
 	padding: 12px;
 	border: none;
 	border-radius: 4px;
-	margin: 5px 0;
+	margin: 5px;
 	opacity: 0.85;
 	display: inline-block;
 	font-size: 17px;
 	line-height: 20px;
 	text-decoration: none; /* remove underline from anchors */
 }
-
-
 
 /* Two-column layout */
 .col {
@@ -120,4 +130,4 @@
 	text-align: right;
 }
 
-/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+

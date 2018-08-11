@@ -151,20 +151,20 @@
 										<div><label class="col-md-3 control-label">관심사</label></div>
 										<div class="col-md-12">
 										<div class="checkbox">
-											<label> <input type="checkbox" name="character" value="neighborhood"
-											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("neighborhood")){%>checked<% }} %>/>동네</label> 
-											<label> <input type="checkbox" name="character" value="food"
-											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("food")){%>checked<% }} %>/>음식</label> 
-											<label> <input type="checkbox" name="character" value="buy"
-											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("buy")){%>checked<% }} %>/>공동구매</label>
-											<label> <input type="checkbox" name="character" value="event"
-											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("event")){%>checked<% }} %>/>축제</label>
-											<label> <input type="checkbox" name="character" value="movie"
-											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("movie")){%>checked<% }} %>/>영화</label>
-											<label> <input type="checkbox" name="character" value="musical"
-											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("musical")){%>checked<% }} %>/>뮤지컬</label>
-											<label> <input type="checkbox" name="character" value="exhibition"
-											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("exhibition")){%>checked<% }} %>/>전시회</label>
+											<label> <input type="checkbox" name="character" value="동네"
+											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("동네")){%>checked<% }} %>/>동네</label> 
+											<label> <input type="checkbox" name="character" value="음식"
+											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("음식")){%>checked<% }} %>/>음식</label> 
+											<label> <input type="checkbox" name="character" value="공동구매"
+											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("공동구매")){%>checked<% }} %>/>공동구매</label>
+											<label> <input type="checkbox" name="character" value="축제"
+											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("축제")){%>checked<% }} %>/>축제</label>
+											<label> <input type="checkbox" name="character" value="영화"
+											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("영화")){%>checked<% }} %>/>영화</label>
+											<label> <input type="checkbox" name="character" value="뮤지컬"
+											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("뮤지컬")){%>checked<% }} %>/>뮤지컬</label>
+											<label> <input type="checkbox" name="character" value="전시회"
+											<%if(character!=null) for(int i=0; i<size; i++){if(character[i].equals("전시회")){%>checked<% }} %>/>전시회</label>
 										</div>
 										</div>
 									</div>

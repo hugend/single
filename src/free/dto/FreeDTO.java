@@ -13,11 +13,21 @@ public class FreeDTO {
 	private String fr_img;
 	private String me_id;
 	
+	private int cmtcount;
+	
+	public int getCmtcount() {
+		return cmtcount;
+	}
+
+	public void setCmtcount(int cmtcount) {
+		this.cmtcount = cmtcount;
+	}
+
 	public FreeDTO() {
 		
 	}
 
-	// 게시글 업데이트용 (로그인 전)
+	// 게시글 업데이트용
 	public FreeDTO(int fr_no, String fr_title, String fr_txt, String fr_ctg, String fr_img) {
 		super();
 		this.fr_no = fr_no;
@@ -27,17 +37,6 @@ public class FreeDTO {
 		this.fr_img = fr_img;
 	}
 	
-
-	
-	// 게시글 등록용(로그인 전)
-	public FreeDTO(String fr_title, String fr_txt, String fr_ctg, String fr_img) {
-		super();
-		this.fr_title = fr_title;
-		this.fr_txt = fr_txt;
-		this.fr_ctg = fr_ctg;
-		this.fr_img = fr_img;
-	}
-
 	// 게시글 목록용
 	public FreeDTO(int fr_no, String fr_title, Date fr_date, int fr_hits, String me_id) {
 		super();
@@ -49,7 +48,7 @@ public class FreeDTO {
 	}
 	
 	
-	// 게시글 등록용(origin)
+	// 게시글 등록용
 	public FreeDTO(String fr_title, String fr_txt, String fr_ctg, String fr_img, String me_id) {
 		super();
 		this.fr_title = fr_title;
@@ -73,10 +72,27 @@ public class FreeDTO {
 		this.me_id = me_id;
 	}
 
+
+
+	public FreeDTO(int fr_no, String fr_title, String fr_txt, String fr_ctg, Date fr_date, int fr_hits, String fr_img,
+			String me_id, int cmtcount) {
+		super();
+		this.fr_no = fr_no;
+		this.fr_title = fr_title;
+		this.fr_txt = fr_txt;
+		this.fr_ctg = fr_ctg;
+		this.fr_date = fr_date;
+		this.fr_hits = fr_hits;
+		this.fr_img = fr_img;
+		this.me_id = me_id;
+		this.cmtcount = cmtcount;
+	}
+
 	@Override
 	public String toString() {
 		return "FreeDTO [fr_no=" + fr_no + ", fr_title=" + fr_title + ", fr_txt=" + fr_txt + ", fr_ctg=" + fr_ctg
-				+ ", fr_date=" + fr_date + ", fr_hits=" + fr_hits + ", fr_img=" + fr_img + ", me_id=" + me_id + "]";
+				+ ", fr_date=" + fr_date + ", fr_hits=" + fr_hits + ", fr_img=" + fr_img + ", me_id=" + me_id
+				+ ", cmtcount=" + cmtcount + "]";
 	}
 
 	public int getFr_no() {

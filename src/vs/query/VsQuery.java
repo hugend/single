@@ -5,7 +5,7 @@ public class VsQuery {
 	public static final String INSERT_POST = "insert into vs_board values(vs_seq.nextval, ?, ?, ?, ?, ?, 0, 0, sysdate)";
 	
 	// vs게시글 목록 
-	public static final String READ_POSTS = "select * from vs_board";
+	public static final String READ_POSTS = "select * from vs_board order by vs_hitsA+vs_hitsB desc";
 	
 	// 투표수 업데이트
 	public static final String UPDATE_OPTA = "update VS_BOARD set vs_hitsA = vs_hitsA+1 where vs_no=?";

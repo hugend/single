@@ -62,5 +62,4 @@ public class PointDAOImpl implements PointDAO {
 		close(ptmt);
 		return dto;
 	}
-
 }

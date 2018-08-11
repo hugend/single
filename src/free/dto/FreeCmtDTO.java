@@ -9,49 +9,38 @@ public class FreeCmtDTO {
 	private Date fr_cmt_date;
 	private int fr_no;
 	private String me_id;
+	private String me_img;
 
 	public FreeCmtDTO() {
 
 	}
 
-	// ´ñ±Û µî·Ï¿ë(·Î±×ÀÎ Àü)
-	public FreeCmtDTO(String fr_cmt_txt, int fr_no) {
-		super();
-		this.fr_cmt_txt = fr_cmt_txt;
-		this.fr_no = fr_no;
-	}
-
 	// ´ñ±Û ¸ñ·Ï¿ë
-	public FreeCmtDTO(String fr_cmt_txt, Date fr_cmt_date, String me_id) {
+	public FreeCmtDTO(int fr_cmt_no, String fr_cmt_txt, Date fr_cmt_date, String me_id, String me_img) {
 		super();
+		this.fr_cmt_no = fr_cmt_no;
 		this.fr_cmt_txt = fr_cmt_txt;
 		this.fr_cmt_date = fr_cmt_date;
 		this.me_id = me_id;
+		this.me_img = me_img;
 	}
 	
-	// ´ñ±Û µî·Ï¿ë(origin)
+	// ´ñ±Û µî·Ï¿ë
 	public FreeCmtDTO(String fr_cmt_txt, int fr_no, String me_id) {
 		super();
 		this.fr_cmt_txt = fr_cmt_txt;
 		this.fr_no = fr_no;
 		this.me_id = me_id;
 	}
-	
 
-
-	public FreeCmtDTO(int fr_cmt_no, String fr_cmt_txt, Date fr_cmt_date, int fr_no, String me_id) {
+	public FreeCmtDTO(int fr_cmt_no, String fr_cmt_txt, Date fr_cmt_date, int fr_no, String me_id, String me_img) {
 		super();
 		this.fr_cmt_no = fr_cmt_no;
 		this.fr_cmt_txt = fr_cmt_txt;
 		this.fr_cmt_date = fr_cmt_date;
 		this.fr_no = fr_no;
 		this.me_id = me_id;
-	}
-
-	@Override
-	public String toString() {
-		return "FreeCmtDTO [fr_cmt_no=" + fr_cmt_no + ", fr_cmt_txt=" + fr_cmt_txt + ", fr_cmt_date=" + fr_cmt_date
-				+ ", fr_no=" + fr_no + ", me_id=" + me_id + "]";
+		this.me_img = me_img;
 	}
 
 	public int getFr_cmt_no() {
@@ -94,6 +83,15 @@ public class FreeCmtDTO {
 		this.me_id = me_id;
 	}
 
+	public String getMe_img() {
+		return me_img;
+	}
+
+	public void setMe_img(String me_img) {
+		this.me_img = me_img;
+	}
+	
+	
 }
 
 /*

@@ -21,10 +21,10 @@ public class MsgInsertServlet extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		System.out.println("Servlet요청성공");
 		
-		String sender = "ocean1";
-		String receiver = "ocean2";
-		String msg_title = "";
-		String msg_txt = "";
+		String sender = request.getParameter("sender");
+		String receiver = request.getParameter("receiver");
+		String msg_title = request.getParameter("msg_title");
+		String msg_txt = request.getParameter("msg_txt");
 		
 		FriendsService service = new FriendsServiceImpl();
 		MsgDTO msg = new MsgDTO(sender, receiver, msg_title, msg_txt);
@@ -41,6 +41,6 @@ public class MsgInsertServlet extends HttpServlet {
 		
 		request.setAttribute("msg", msg);
 		
-		response.sendRedirect("/single/vs/vs_read.do");
+		response.sendRedirect("/single/friends/list.do");
 	}
 }

@@ -1,13 +1,18 @@
 package point.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import point.dto.PointDTO;
 import point.service.PointService;
@@ -20,28 +25,37 @@ public class PointInsertServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
 		
-		String po_title = request.getParameter("po_title");
-		String po_txt = request.getParameter("po_txt");
-		String po_img = request.getParameter("po_img");
-		int po_pt = Integer.parseInt(request.getParameter("po_pt"));
-		int po_state = Integer.parseInt(request.getParameter("po_state"));
+		
+		//파일업로드
+		String savaFolder = "/upload";
+		String encType = "euc-kr";
+		int size = 5*1024*1024; 
+		String realpath = "";
+		
+		ServletContext context = getServletContext();
+		realpath = context.getRealPath(savaFolder);
+		MultipartRequest multipart = new MultipartRequest(request, realpath, size, encType, new DefaultFileRenamePolicy());
+		
+		String po_title = multipart.getParameter("po_title");
+		String po_txt = multipart.getParameter("po_txt");
+		String po_img = "";
+		Enumeration<String> files = multipart.getFileNames();
+		while(files.hasMoreElements()){
+			String file = files.nextElement();
+			po_img = multipart.getFilesystemName(file);
+		}
+		if(po_img==null){
+			po_img = "225x160.gif";
+		}
+		int po_pt = Integer.parseInt(multipart.getParameter("po_pt"));
+		int po_state = Integer.parseInt(multipart.getParameter("po_state"));
 		
 		PointDTO dto = new PointDTO(po_title, po_txt, po_img,  po_pt, po_state);
 		int result = 0;
 		PointService service = new PointServiceImpl();
 		result = service.po_insert(dto);
 		
-		System.out.println("result값"+result);
-		String msg = "";
-		if(result > 0){
-			msg= "입력성공";
-		}else{
-			msg= "입력실패";
-		}
-		System.out.println(msg);
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/PointList.do");
+		RequestDispatcher rd = request.getRequestDispatcher("/po/list.do");
 		rd.forward(request, response);
 		
 	

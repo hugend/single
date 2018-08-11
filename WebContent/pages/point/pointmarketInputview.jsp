@@ -19,7 +19,7 @@
 			<jsp:include page="/pages/template/floatingmenu.jsp" />
 			<%} %>
 			<!-- content body -->
-			<form action="" method="post">
+			<form action="" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<td>Á¦¸ñ</td>

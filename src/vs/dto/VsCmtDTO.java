@@ -5,10 +5,10 @@ public class VsCmtDTO {
 	
 	int vs_cmt_no;		// 댓글번호
 	String vs_cmt_txt;	// 댓글내용
-	String me_id;		// 작성자ID
-	int vs_no;			// 글번호
 	Date vs_cmt_date;	// 작성일
-	
+	int vs_no;			// 글번호
+	String me_id;		// 작성자ID
+
 	public VsCmtDTO(){}
 
 	// 삽입용
@@ -20,19 +20,19 @@ public class VsCmtDTO {
 	}
 
 	// 조회용
-	public VsCmtDTO(int vs_cmt_no, String vs_cmt_txt, String me_id, int vs_no, Date vs_cmt_date) {
+	public VsCmtDTO(int vs_cmt_no, String vs_cmt_txt, Date vs_cmt_date, int vs_no, String me_id) {
 		super();
 		this.vs_cmt_no = vs_cmt_no;
 		this.vs_cmt_txt = vs_cmt_txt;
-		this.me_id = me_id;
-		this.vs_no = vs_no;
 		this.vs_cmt_date = vs_cmt_date;
+		this.vs_no = vs_no;
+		this.me_id = me_id;
 	}
 
 	@Override
 	public String toString() {
-		return "VsCmtDTO [vs_cmt_no=" + vs_cmt_no + ", vs_cmt_txt=" + vs_cmt_txt + ", me_id=" + me_id + ", vs_no="
-				+ vs_no + ", vs_cmt_date=" + vs_cmt_date + "]";
+		return "VsCmtDTO [vs_cmt_no=" + vs_cmt_no + ", vs_cmt_txt=" + vs_cmt_txt + ", vs_cmt_date=" + vs_cmt_date
+				+ ", vs_no=" + vs_no + ", me_id=" + me_id + "]";
 	}
 
 	public int getVs_cmt_no() {

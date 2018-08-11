@@ -157,13 +157,13 @@
 					<label class="col-md-1 control-label">관심사</label>
 					<div class="col-md-4">
 						<div class="checkbox">
-							<label> <input type="checkbox" name="me_character" value="neighborhood"/>동네</label> 
-							<label> <input type="checkbox" name="me_character" value="food"/>음식</label> 
-							<label> <input type="checkbox" name="me_character" value="buy"/>공동구매</label>
-							<label> <input type="checkbox" name="me_character" value="event"/>축제</label>
-							<label> <input type="checkbox" name="me_character" value="movie"/>영화</label>
-							<label> <input type="checkbox" name="me_character" value="musical"/>뮤지컬</label>
-							<label> <input type="checkbox" name="me_character" value="exhibition"/>전시회</label>
+							<label> <input type="checkbox" name="me_character" value="동네"/>동네</label> 
+							<label> <input type="checkbox" name="me_character" value="음식"/>음식</label> 
+							<label> <input type="checkbox" name="me_character" value="공동구매"/>공동구매</label>
+							<label> <input type="checkbox" name="me_character" value="축제"/>축제</label>
+							<label> <input type="checkbox" name="me_character" value="영화"/>영화</label>
+							<label> <input type="checkbox" name="me_character" value="뮤지컬"/>뮤지컬</label>
+							<label> <input type="checkbox" name="me_character" value="전시회"/>전시회</label>
 						</div>
 					</div>
 				</div>

@@ -28,10 +28,10 @@ figure {
 .chart {
 	position:relative;
 	overflow: hidden;
-	width: 0%;
+	width: 200%;
 	animation: expand 1.5s ease forwards;
 	float: center;
-		margin: 0px auto;
+	margin: 0px auto;
 	
 }
 .row + .row .chart {
@@ -117,6 +117,7 @@ figure {
 		line-height: 100px;
 	}
 	.block {
+		width: 100%;
 	}
 	.legend {
 		width: 50%;

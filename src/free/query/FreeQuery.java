@@ -24,28 +24,35 @@ public class FreeQuery {
 	public static final String SELECT_POST_CTG
 	= "select fr_no, fr_title, fr_date, fr_hits, me_id from fr_board where fr_ctg=? order by fr_no desc";		// 카테고리별 게시글 목록 읽기
 	
+	public static final String SEARCH_ALL
+	= "select fr_no, fr_title, fr_date, fr_hits, me_id from fr_board where fr_title like ? or fr_txt like ? or me_id like ? order by fr_no desc";
+	
+	public static final String SEARCH_TITLE
+	= "select fr_no, fr_title, fr_date, fr_hits, me_id from fr_board where fr_title like ? order by fr_no desc";
+	
+	public static final String SEARCH_TXT
+	= "select fr_no, fr_title, fr_date, fr_hits, me_id from fr_board where fr_txt like ? order by fr_no desc";
+
+	public static final String SEARCH_WRITER
+	= "select fr_no, fr_title, fr_date, fr_hits, me_id from fr_board where me_id like ? order by fr_no desc";
 	
 	public static final String INSERT_CMT
-	= "insert into fr_cmt values(fr_cmt_seq.nextval, ?, sysdate, ?, 'cmt_test')";		// 댓글 작성
-
-	public static final String UPDATE_CMT
-	= "update fr_cmt "
-			+ "set fr_cmt_txt=? where fr_cmt_no=?";		// 댓글 수정
+	= "insert into fr_cmt values(fr_cmt_seq.nextval, ?, sysdate, ?, ?)";		// 댓글 작성
 	
 	public static final String DELETE_CMT 
 	= "delete from fr_cmt where fr_cmt_no=?";		// 댓글 삭제
 	
 	public static final String SELECT_CMT_LIST
-	= "select fr_cmt_txt, fr_cmt_date, me_id from fr_cmt where fr_no=?";		// 댓글 읽기
+	= "select c.fr_cmt_no, c.fr_cmt_txt, c.fr_cmt_date, c.me_id, m.me_img from fr_cmt c, member m where m.me_id = c.me_id and fr_no=? order by fr_cmt_date asc";		// 댓글 읽기
 	
 	public static final String COUNT_CMT
-	= "select count(fr_cmt_no) from fr_cmt where fr_no=?";		// 댓글 갯수
+	= "select count(*) from fr_cmt where fr_no=?";		// 댓글 갯수
 	
 	public static final String REPORT_USER
-	= "update member set me_black=? where me_id=?"; 		// 게시글 신고
+	= "update member set me_black= me_black+1 where me_id=?"; 		// 게시글 신고
 	
-	public static final String SEARCH
-	= "select fr_no, fr_title, fr_date, fr_hits, me_id from fr_board where fr_title like ? or fr_txt like ? or me_id like ? ";
+	public static final String COUNT_POST
+	="select count(*) from fr_board";	// 게시글 카운트
 }
 
 

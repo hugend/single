@@ -3,6 +3,7 @@ select * from VS_BOARD;
 select * from fr_board;
 delete from member;
 select * from tab;
+select * from le_main;
 
 drop table member;
 drop table bd_list;
@@ -16,7 +17,7 @@ drop table vs_cmt;
 drop table ma_board;
 drop table ma_cmt;
 drop table ma_join;
-drop table le_board;
+drop table le_main;
 drop table point;
 
 create table member(
@@ -134,12 +135,21 @@ ma_no number,
 me_id number);
 
 
-create table le_board(
-le_no number,
-location varchar2(200),
-le_title varchar2(100),
-le_txt varchar2(100),
-le_img varchar2(200));
+create table le_main(
+ le_title varchar2(50),
+ le_start date,
+ le_end date,
+ le_addr1 varchar2(200),
+ le_addr2 varchar2(200),
+ le_cid varchar2(10),
+ le_img varchar2(50));
+ 
+insert into le_main
+values ('부산불꽃축제','20181027','20181027','부산광역시 수영구 광안해변로 ','광안리해수욕장','235076','fireworksfestival.JPG');
+insert into le_main
+values ('서울밤도깨비야시장2018', '20180330', '20181028','서울특별시 영등포구 여의동로 330(여의도동)','여의도한강공원, 반포한강공원, DDP, 청계천','2028440','marketevent.jpg');
+insert into le_main
+values ('고양가을꽃축제2018','20180922','20181009','경기도고양시일산동구호수로 595(장항동)','고양시 일산 호수공원','1725993','flowerfestival.JPG');
 
 create table point(
    po_no number, 

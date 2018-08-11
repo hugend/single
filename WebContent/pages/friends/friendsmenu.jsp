@@ -8,14 +8,11 @@
   	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<!-- https://getbootstrap.com/docs/4.0/components/navbar/#responsive-behaviors -->
-	
-	<!-- <link rel="stylesheet" href="/single/common/styles/friends/friendsmenu.css"> -->
 	
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg ">
-  		<a class="navbar-brand" href="#">模备包府</a>
+  		<a class="navbar-brand" href="/single/friends/list.do">模备包府</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
   		</button>
@@ -23,7 +20,7 @@
   		<div class="collapse navbar-collapse" id="navbarSupportedContent">
     		<ul class="navbar-nav mr-auto">
 		      	<li class="nav-item active">
-		        	<a class="nav-link" href="/single/pages/friends/friendsview.jsp">模备格废</a>
+		        	<a class="nav-link" href="/single/friends/list.do">模备格废</a>
 		      	</li>
 		      	<li class="nav-item dropdown">
 		        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -11,3 +11,10 @@ msg_date date);
 create sequence msg_seq;
 
 select * from message;
+
+create table bd_list(
+me_id varchar2(30),
+bd_id varchar2(30));
+
+insert into bd_list values('ocean', 'mino');
+

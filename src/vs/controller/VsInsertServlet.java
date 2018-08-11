@@ -26,7 +26,10 @@ public class VsInsertServlet extends HttpServlet {
 		String vs_optionB = request.getParameter("vs_optionB");
 		String vs_txt = request.getParameter("vs_txt");
 		String me_id = "ocean";
-		
+
+		if(vs_txt.equals("")){
+			vs_txt=" ";	
+		}
 		VsService service = new VsServiceImpl();
 		VsDTO post = new VsDTO(vs_title, vs_optionA, vs_optionB, vs_txt, me_id);
 		System.out.println(post);

@@ -6,44 +6,13 @@ import static fw.DBUtil.getConnect;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import free.dao.FreeCmtDAO;
 import free.dao.FreeCmtDAOImpl;
 import free.dto.FreeCmtDTO;
 
 public class FreeCmtServiceImpl implements FreeCmtService {
-
-	@Override
-	public int insert(FreeCmtDTO cmt) {
-		int result = 0;
-		FreeCmtDAO dao = new FreeCmtDAOImpl();
-		Connection con = null;
-		try {
-			con = getConnect();
-			result = dao.insert(cmt, con);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(con);
-		}
-		return result;
-	}
-
-	@Override
-	public int update(FreeCmtDTO cmt) {
-		int result = 0;
-		FreeCmtDAO dao = new FreeCmtDAOImpl();
-		Connection con = null;
-		try {
-			con = getConnect();
-			result = dao.update(cmt, con);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(con);
-		}
-		return result;
-	}
 
 	@Override
 	public int delete(int fr_cmt_no) {
@@ -75,6 +44,22 @@ public class FreeCmtServiceImpl implements FreeCmtService {
 			close(con);
 		}
 		return cmplist;
+	}
+
+	@Override
+	public int insert(FreeCmtDTO cmt) {
+		int result = 0;
+		FreeCmtDAO dao = new FreeCmtDAOImpl();
+		Connection con = null;
+		try {
+			con = getConnect();
+			result = dao.insert(cmt, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+		}
+		return result;
 	}
 
 }

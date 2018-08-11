@@ -50,10 +50,10 @@
 <script type="text/javascript">
 	function mapselect(){
 		var center = map.getCenter();
-		opener.document.getElementById("latval").value = center.getLat();
-		opener.document.getElementById("lngval").value = center.getLng();
 		alert(center.getLat());
 		alert(center.getLng());
+		opener.document.getElementById("latval").value = center.getLat();
+		opener.document.getElementById("lngval").value = center.getLng();
 		opener.document.getElementById("result").value = document.getElementById("centerAddr").innerHTML;
 		window.close();
 	}
@@ -63,8 +63,10 @@
         level: 3 // 지도의 확대 레벨
     };  
 
+
 // 지도를 생성합니다    
 var map = new daum.maps.Map(mapContainer, mapOption); 
+
 
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new daum.maps.services.Geocoder();
@@ -80,6 +82,7 @@ searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 
 // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
 daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+
     searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
         if (status === daum.maps.services.Status.OK) {
             var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
@@ -103,6 +106,7 @@ daum.maps.event.addListener(map, 'click', function(mouseEvent) {
 
 // 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
 daum.maps.event.addListener(map, 'idle', function() {
+	latlng = map.getCenter(); 
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 });
 

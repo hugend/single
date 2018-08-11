@@ -24,15 +24,14 @@ public class MsgReadServlet extends HttpServlet {
 		String me_id = "ocean";
 		String option = "A";	// 받은 쪽지, 보낸 쪽지 구분
 		
-		// 2. 비지니스 메소드 호출
 		FriendsService service = new FriendsServiceImpl();
 		ArrayList<MsgDTO> msgs = service.readMsg(option, me_id);
 		
-		// 3. 데이터공유
+		System.out.println("메시지"+msgs);
+		
 		request.setAttribute("msgs", msgs);
 		
-		// 4. 요청재지정
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/mainview.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/friends/friendsview_message.jsp");
 		rd.forward(request, response);
 	}
 }

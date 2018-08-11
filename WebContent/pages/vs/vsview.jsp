@@ -1,3 +1,4 @@
+<%@page import="javafx.scene.control.Alert"%>
 <%@page import="org.w3c.dom.Document"%>
 <%@page import="member.dto.MemberDTO"%>
 <%@page import="vs.dto.VsDTO"%>
@@ -13,13 +14,15 @@
 	<link rel="stylesheet" href="/single/common/styles/mediaqueries.css" type="text/css" media="all">
 	<script src="/single/common/scripts/jquery.min.js"></script>
 	<script src="/single/common/scripts/jquery-mobilemenu.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" href="/single/common/styles/vs/vsview.css">
+	<link rel="stylesheet" href="/single/common/styles/vs/vscmt.css">
 	<script type="text/javascript">
+		
+		// 양자택일 투표수  
 		$(document).ready(function(){
 			$(".btnA").on("click", function(){
 				vs_no = $(this).attr("id");
@@ -32,6 +35,48 @@
 				document.myformB.submit();
 			});
 		});
+		
+		
+		// 댓글
+		function showCmt(myvs_no){
+			vs_no = myvs_no;
+			xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = readyCallback;
+			xhr.open("GET", "/single/vs/vs_cmt_read.do?vs_no=" + myvs_no, true);
+			xhr.send();
+		}
+		function readyCallback(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var myjsonObj = JSON.parse(xhr.responseText);
+				// alert(myjsonObj.cmtlist[0].vs_cmt_txt);
+				var cmtList = document.getElementById("commentsList"+vs_no);
+			    if(cmtList.style.display=="block"){
+			    	cmtList.style.display = "none";
+			    }else{
+			    	cmtList.style.display = "block"; 
+			    }
+			    document.getElementById("cmtNum").innerHTML=myjsonObj.cmtlist.length;
+				myjsonObj.cmtlist[0].vs_num;
+			    mydata = "";
+				for(i in myjsonObj.cmtlist){
+					mydata = mydata + "<li class='list-group-item'><div class='row'>";
+					mydata = mydata + "<div class='col-xs-2 col-md-1'>";
+					mydata = mydata + "<img src='/single/images/irene.png' class='img-circle img-responsive' alt='' /></div>";
+					mydata = mydata + "<div class='col-xs-10 col-md-11'><div class='comment-text'>";
+					mydata = mydata + myjsonObj.cmtlist[i].vs_cmt_txt;
+					mydata = mydata + "</div><div class='mic-info'>By: "
+					mydata = mydata + "<a href='#'>"+myjsonObj.cmtlist[i].me_id+"</a> on 2 Jul 2018</div></div></div></li>";
+				}
+				// alert(mydata);
+				// alert(myjsonObj.cmtlist.length);
+				document.getElementById("cmt"+vs_no).innerHTML = mydata;
+				for (j = 0; j < myjsonObj.cmtlist.length; j++) {
+					
+				}
+				
+			}
+		}
+
 	</script>
 </head>
 <body>
@@ -44,7 +89,6 @@
 	</div>
 
 	<div class="wrapper row2">
-
 		<div id="container">
 			<%if(loginUser!=null){ %>
 			<jsp:include page="/pages/template/floatingmenu.jsp" />
@@ -97,103 +141,101 @@
 					</form>
 				</div>
 			
-				<br><br>
+				<br/><br/>
 				
 				<div id="bar">
 					<jsp:include page="/pages/vs/bar.jsp" />
 				</div>
-
-			
-				<div class="bottom-container">
- 	 <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button> -->  			
-	 	 			<div id="demo" class="collapse">
-						<jsp:include page="/pages/vs/vscmt.jsp" />
-						<a href="/single/pages/vs/vscmt.jsp">댓글보기</a>
-					</div>
-				</div>
-			</div>	
-			<%}}%>
-		</div>
-	</div>
-	
-	
-	<%-- 댓글 ajax --%>
-	<a href="#" data-toggle="modal" data-target="#BckLstDetailModal">댓글쓰기</a>  
-	<div class="modal fade" id="BckLstDetailModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times; </span><span class="sr-only">
-							Close</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">회원 상세 정보</h4>
-				</div>
 				
-				<div class="modal-body">
-					<div class="input-group">
-						<span class="input-group-addon">ID</span> 
-						<input type="text" class="form-control" placeholder="Joo" />
-					</div>
-					<p></p>
-					<div class="input-group">
-						<span class="input-group-addon">이름</span>
-						<input type="text" class="form-control" placeholder="배주현" />
-					</div>
-					<p></p>
-					<div class="input-group">
-						<span class="input-group-addon">신고횟수</span> 
-						<input type="text" class="form-control" placeholder="2회" />
-					</div>
-					<p></p>
-					<div class="input-group">
-						<span class="input-group-addon">생년월일</span> 
-						<input type="text" class="form-control" placeholder="950112" />
-					</div>
-					<p></p>
-					<div class="input-group">
-						<span class="input-group-addon">전화번호</span>
-						<input type="text" class="form-control" placeholder="010-5654-3212" />
-					</div>
-					<p></p>
-					<div class="input-group">
-						<span class="input-group-addon">선호MATE</span>
-						<input type="text" class="form-control" placeholder="문화" />
-					</div>
+				<input type="button" class="button" value="댓글 보기  &raquo;" onclick="showCmt('<%=post.getVs_no()%>')" id="show"/>
+				<input type="button" class="button" value="댓글 쓰기 &raquo;" data-toggle="modal" data-target="#CommentModal" />
+				<!-- <a href="/single/pages/vs/vscmt.jsp">댓글 보기 &raquo;</a>
+				<a href="#" data-toggle="modal" data-target="#CommentModal">댓글 쓰기 &raquo;</a> -->
+				<br/>
+				<br/>
+				<br/>
+		<%-- 댓글 --%>
+		<div class="row" id="commentsList<%=post.getVs_no() %>" style="display:none">
+			<div class="panel panel-default widget">
+				<div class="panel-heading">
+					<span class="glyphicon glyphicon-comment"></span>
+					<h3 class="panel-title">Comments</h3>
+					<span class="label label-default" id="cmtNum">0</span>
 				</div>
-				
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default">수정</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				<div class="panel-body">
+					<ul class="list-group">
+							
+						<span id="cmt<%=post.getVs_no() %>"></span>
+						<%--댓글목록 --%>
+<!-- 						<li class="list-group-item">
+							<div class="row">
+								<div class="col-xs-2 col-md-1">
+									<img src="/single/images/irene.png" class="img-circle img-responsive" alt="" />
+								</div>
+								<div class="col-xs-10 col-md-11">
+									<div class="comment-text">뭐가 힘든지 말해야죠</div>
+										<div class="mic-info">
+											By: <a href="#">배주현</a> on 2 Jul 2018
+										</div>
+								</div>
+							</div>
+						</li> -->
+						
+					</ul>
+					<!-- <a href="#" class="btn btn-default btn-sm btn-block" role="button"> 
+						<span class="glyphicon glyphicon-refresh"></span> More
+					</a> -->
 				</div>
-				
 			</div>
 		</div>
+		
+		
+	
+		
+				<%-- #############################################댓글 작성 modal######################################################### --%>
+				<div class="modal fade" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times; </span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">댓글 쓰기</h4>
+							</div>
+							<form action="/single/vs/vs_cmt_insert.do" method="POST">
+								<div class="modal-body">
+									<div class="input-group">
+										<span class="input-group-addon"> * 작성자</span> 
+										<input type="text" class="form-control" placeholder="<%=post.getMe_id()%>" name="me_id" />
+									</div>
+									<p></p>
+									<div class="input-group">
+										<span class="input-group-addon">* 댓&nbsp;&nbsp;&nbsp;글</span>
+										<textarea class="form-control" rows="5" placeholder="댓글 내용"  name="vs_cmt_txt" required="required"></textarea>
+										<input type="hidden" name="vs_no" value="<%=post.getVs_no()%>"/>
+									</div>
+								</div>
+
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-default" style="float: right; width: 20%">등록</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" style="float: right; width: 20%">취소</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<%-- ################################################################################################################## --%>
+
+			</div>	
+			<%}}%>
+			
+		</div>
 	</div>
-	
-	
 	
 	<!-- Copyright -->
 	<div class="wrapper row3">
 		<jsp:include page="/pages/template/Footer.jsp" />
 	</div>
-	
-	<script type="text/javascript">
-		var coll = document.getElementsByClassName("collapsible");
-		var i;
-
-		for (i = 0; i < coll.length; i++) {
-			coll[i].addEventListener("click", function() {
-				this.classList.toggle("active");
-				var content = this.nextElementSibling;
-				if (content.style.display === "block") {
-					content.style.display = "none";
-				} else {
-					content.style.display = "block";
-				}
-			});
-		}
-	</script>
 	
 </body>
 </html>

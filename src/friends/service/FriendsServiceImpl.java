@@ -9,7 +9,9 @@ import java.util.ArrayList;
 
 import friends.dao.FriendsDAO;
 import friends.dao.FriendsDAOImpl;
+import friends.dto.BdDTO;
 import friends.dto.MsgDTO;
+import member.dto.MemberDTO;
 
 public class FriendsServiceImpl implements FriendsService {
 
@@ -44,5 +46,68 @@ public class FriendsServiceImpl implements FriendsService {
 		}
 		close(con);
 		return msgs;
+	}
+
+	@Override
+	public int insertBd(BdDTO bd) {	// 模备 眠啊
+		int result = 0;
+		Connection con = null;		
+		FriendsDAO dao = new FriendsDAOImpl();	
+		try {
+			con = getConnect();
+			result = dao.insertBd(bd, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return result;
+	}
+
+	@Override
+	public int deleteBd(BdDTO bd) {
+		int result = 0;
+		Connection con = null;		
+		FriendsDAO dao = new FriendsDAOImpl();	
+		try {
+			con = getConnect();
+			result = dao.deleteBd(bd, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return result;
+	}
+		
+	public ArrayList<String> friendsList(String me_id) {	// 模备 格废
+		System.out.println("Service夸没");
+		ArrayList<String> friends = null;
+		FriendsDAO dao = new FriendsDAOImpl();
+		Connection con = null;
+		try{
+			con = getConnect();
+			friends = dao.friendsList(me_id, con);
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		close(con);
+		return friends;
+	}
+
+	@Override
+	public ArrayList<MemberDTO> BckList() {		// 喉发府胶飘 格废
+		System.out.println("Service夸没");
+		ArrayList<MemberDTO> list = null;
+		FriendsDAO dao = new FriendsDAOImpl();
+		Connection con = null;
+		try{
+			con = getConnect();
+			list = dao.BckList(con);
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		close(con);
+		return list;
 	}
 }

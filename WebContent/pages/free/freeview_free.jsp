@@ -72,6 +72,7 @@
 								for (int i = 0; i < size; i++) {
 									FreeDTO post = postlist.get(i);
 							%>
+
 							<tr class="">
 								<td class="kboard-list-uid"><%=post.getFr_no()%></td>
 
@@ -79,7 +80,7 @@
 									href="/single/fr/read.do?no=<%=post.getFr_no()%>&action=read">
 										<div class="kboard-thumbnail-cut-strings">
 											<%=post.getFr_title()%>
-											<span class="kboard-comments-count"></span>
+											<span class="kboard-comments-count">(<%=post.getCmtcount()%>)</span>
 										</div>
 								</a> </td>
 								<td class="kboard-list-user"><%=post.getMe_id()%></td>
@@ -116,14 +117,13 @@
 
 				<!-- 검색폼 시작 -->
 				<div class="kboard-search">
-					<form id="kboard-search-form-1" method="get" action="freeview.jsp">
-						<input type="hidden" name="mod" value="list"><input
-							type="hidden" name="pageid" value="1"> <select
-							name="target">
+					<form id="kboard-search-form-1" method="get" action="/single/fr/search.do">
+						<select name="column">
+							<option value="">전체</option>
 							<option value="title">제목</option>
 							<option value="content">내용</option>
-							<option value="member_display">작성자</option>
-						</select> <input type="text" name="keyword" value="">
+							<option value="writer">작성자</option>
+						</select> <input type="text" name="search" value="">
 						<button type="submit" class="kboard-thumbnail-button-small">검색</button>
 					</form>
 				</div>

@@ -21,7 +21,7 @@ import free.service.FreeServiceImpl;
 @WebServlet(name = "fr/update", urlPatterns = { "/fr/update.do" })
 public class PostUpdateServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("게시글 수정 서블릿 요청 성공");
+		//System.out.println("게시글 수정 서블릿 요청 성공");
 		req.setCharacterEncoding("euc-kr");
 
 		// 파일 업로드 

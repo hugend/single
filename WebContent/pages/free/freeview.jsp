@@ -16,6 +16,12 @@
 <%
 	ArrayList<FreeDTO> postlist = (ArrayList<FreeDTO>) request.getAttribute("postlist");
 	int size = postlist.size();
+	
+	String pageNo = request.getParameter("page");
+	int crtpage = 1;
+	if(pageNo!=null){
+		crtpage = Integer.parseInt(pageNo);	//현재 페이지
+	}
 %>
 <link rel="shortcut icon" href="/single/images/favicon.ico">
 
@@ -65,25 +71,6 @@
 								for (int i = 0; i < size; i++) {
 									FreeDTO post = postlist.get(i);
 							%>
-							<!-- 							<tr class="kboard-list-notice">
-								<td class="kboard-list-uid">공지사항</td>
-
-								<td class="kboard-list-title"><a href="freeview_view.jsp">
-										<div class="kboard-thumbnail-cut-strings">
-											공지사항을 읽어주세요. <span class="kboard-comments-count">(1)</span>
-										</div>
-								</a>
-									<div class="kboard-mobile-contents">
-										<span class="contents-item kboard-user">admin</span> <span
-											class="contents-separator kboard-date">|</span> <span
-											class="contents-item kboard-date">2018.07.21</span> <span
-											class="contents-separator kboard-view">|</span> <span
-											class="contents-item kboard-view">조회 26</span>
-									</div></td>
-								<td class="kboard-list-user">admin</td>
-								<td class="kboard-list-date">2018.07.21</td>
-								<td class="kboard-list-view">26</td>
-							</tr> -->
 
 							<tr class="">
 								<td class="kboard-list-uid"><%=post.getFr_no()%></td>
@@ -92,7 +79,7 @@
 									href="/single/fr/read.do?no=<%=post.getFr_no()%>&action=read">
 										<div class="kboard-thumbnail-cut-strings">
 											<%=post.getFr_title()%>
-											<span class="kboard-comments-count"></span>
+											<span class="kboard-comments-count">(<%=post.getCmtcount()%>)</span>
 										</div>
 								</a> </td>
 								<td class="kboard-list-user"><%=post.getMe_id()%></td>
@@ -129,14 +116,13 @@
 
 				<!-- 검색폼 시작 -->
 				<div class="kboard-search">
-					<form id="kboard-search-form-1" method="get" action="freeview.jsp">
-						<input type="hidden" name="mod" value="list"><input
-							type="hidden" name="pageid" value="1"> <select
-							name="target">
+					<form id="kboard-search-form-1" method="get" action="/single/fr/search.do">
+						<select name="column">
+							<option value="">전체</option>
 							<option value="title">제목</option>
 							<option value="content">내용</option>
-							<option value="member_display">작성자</option>
-						</select> <input type="text" name="keyword" value="">
+							<option value="writer">작성자</option>
+						</select> <input type="text" name="search" value="">
 						<button type="submit" class="kboard-thumbnail-button-small">검색</button>
 					</form>
 				</div>

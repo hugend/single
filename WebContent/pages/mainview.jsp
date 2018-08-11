@@ -1,3 +1,4 @@
+<%@page import="local.dto.LeDTO"%>
 <%@page import="vs.dto.VsDTO"%>
 <%@page import="point.dto.PointDTO"%>
 <%@page import="mate.dto.MateDTO"%>
@@ -17,7 +18,20 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); %>
+<%
+	MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); 
+	MainBoard board = new MainBoard();
+	ArrayList<LeDTO> eventlist = board.leList();
+	ArrayList<MateDTO> matelist = board.MateList();
+	ArrayList<FreeDTO> freelist = board.FreeList();	
+	ArrayList<VsDTO> vslist = board.VsList();
+	ArrayList<PointDTO> pointlist = board.PointList();
+	int eventsize = eventlist.size();
+	int matesize = matelist.size();
+	int freesize = freelist.size();
+	int vssize = vslist.size();
+	int pointsize = pointlist.size();
+			%>
 	<!-- top -->
 	<div class="wrapper row1">
 		<jsp:include page="/pages/template/Topbar.jsp" />
@@ -52,31 +66,28 @@
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 				</ol>
 				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-						<img src="/single/images/demo/410x440.gif" alt="New York"
-							width="1200" height="700">
-						<div class="carousel-caption">
-							<h3>New York</h3>
-							<p>The atmosphere in New York is lorem ipsum.</p>
+					<%
+						if(eventsize==0){
+							
+						}else{ 
+							for(int i=0; i<eventsize; i++){ 
+						LeDTO event = eventlist.get(i);
+						if(i==0){%>
+						<div class="item active">
+						<%}else{ %>
+						<div class="item">
+						<%} %>
+							<a href="http://korean.visitkorea.or.kr/kor/bz15/where/festival/festival.jsp?cid=<%=event.getLe_cid()%>">
+							<img src="/single/images/main/<%=event.getLe_img() %>" style="width: 1200px; height: 500px;">
+							</a>
+							<div class="carousel-caption">
+								<h3><%=event.getLe_title() %></h3>
+								<p><%=event.getLe_start() %>~<%=event.getLe_end() %></p>
+								<p><%=event.getLe_addr1() %></p>
+								<p><%=event.getLe_addr2() %></p>
+							</div>
 						</div>
-					</div>
-					<div class="item">
-						<img src="/single/images/demo/410x440.gif" alt="Chicago"
-							width="1200" height="700">
-						<div class="carousel-caption">
-							<h3>Chicago</h3>
-							<p>Thank you, Chicago - A night we won't forget.</p>
-						</div>
-					</div>
-					<div class="item">
-						<img src="/single/images/demo/410x440.gif" alt="Los Angeles"
-							width="1200" height="700">
-						<div class="carousel-caption">
-							<h3>LA</h3>
-							<p>Even though the traffic was a mess, we had the best time
-								playing at Venice Beach!</p>
-						</div>
-					</div>
+					<%}} %>
 				</div>
 				<!-- Left and right controls -->
 				<a class="left carousel-control" href="#myCarousel" role="button"
@@ -90,17 +101,6 @@
 				</a>
 			</div>
 
-			<% 
-				MainBoard board = new MainBoard();
-				ArrayList<MateDTO> matelist = board.MateList();
-				ArrayList<FreeDTO> freelist = board.FreeList();	
-				ArrayList<VsDTO> vslist = board.VsList();
-				ArrayList<PointDTO> pointlist = board.PointList();
-				int matesize = matelist.size();
-				int freesize = freelist.size();
-				int vssize = vslist.size();
-				int pointsize = pointlist.size();
-			%>
 			<!-- main content -->
 			<hr />
 			<div>
@@ -247,6 +247,7 @@
 			<hr />
 			<div class="clear"></div>
 		</div>
+	</div>
 	</div>
 	<!-- Copyright -->
 	<div class="wrapper row3">

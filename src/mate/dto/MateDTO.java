@@ -1,33 +1,20 @@
 package mate.dto;
 
 public class MateDTO {
-	int mt_no;
-	String mt_title;
-	String mt_txt;
-	String mt_date;
-	int mt_hits;
-	String mt_file;
-	String mt_map;
-	String mt_lat;
-	String mt_lng;
-	String mt_ctg;
-	int mt_cnt;
-	String me_id;
-	String mt_img;
-	String mt_particpant;
-	/*	mt_no number,
-	mt_title varchar2(100),
-	mt_txt varchar2(1000),
-	mt_date date,
-	mt_hits number,
-	mt_file varchar2(200),
-	mt_map varchar2(200),
-	mt_ctg varchar2(30),
-	mt_cnt number,
-	me_id varchar2(30),
-	mt_img varchar2(200),
-	mt_participant varchar2(200));
-*/
+	private int mt_no;
+	private String mt_title;
+	private String mt_txt;
+	private String mt_date;
+	private int mt_hits;
+	private String mt_file;
+	private String mt_map;
+	private String mt_lat;
+	private String mt_lng;
+	private String mt_ctg;
+	private int mt_cnt;
+	private String me_id;
+	private String mt_img;
+	private String mt_particpant;
 	
 	
 
@@ -65,13 +52,6 @@ public class MateDTO {
 	}
 	public MateDTO() {
 	}
-	@Override
-	public String toString() {
-		return "MateDTO [mt_no=" + mt_no + ", mt_title=" + mt_title + ", mt_txt=" + mt_txt + ", mt_date=" + mt_date
-				+ ", mt_hits=" + mt_hits + ", mt_file=" + mt_file + ", mt_map=" + mt_map + ", mt_lat=" + mt_lat
-				+ ", mt_lng=" + mt_lng + ", mt_ctg=" + mt_ctg + ", mt_cnt=" + mt_cnt + ", me_id=" + me_id + ", mt_img="
-				+ mt_img + ", mt_particpant=" + mt_particpant + "]";
-	}
 	public String getMt_lat() {
 		return mt_lat;
 	}
@@ -84,6 +64,7 @@ public class MateDTO {
 	public void setMt_lng(String mt_lng) {
 		this.mt_lng = mt_lng;
 	}
+	
 	public int getMt_no() {
 		return mt_no;
 	}

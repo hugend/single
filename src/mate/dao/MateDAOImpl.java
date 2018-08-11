@@ -13,7 +13,7 @@ import mate.dto.MateDTO;
 import static mate.query.MateQuery.*;
 import static fw.DBUtil.*;
 public class MateDAOImpl implements MateDAO {
-
+ 
 	@Override
 	public int insert_mt(MateDTO dto, Connection con) throws SQLException {
 		int result = 0;

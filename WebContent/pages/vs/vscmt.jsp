@@ -11,8 +11,7 @@
 	<link rel="stylesheet" href="/single/common/styles/vs/vscmt.css">
 </head>
 <body>
-
-	<!-- ´ñ±Û ¸ñ·Ï -->
+	<%-- ´ñ±Û --%>
 		<div class="row">
 			<div class="panel panel-default widget">
 				<div class="panel-heading">

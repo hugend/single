@@ -7,6 +7,13 @@ $(document).ready(function(){
 			document.getElementById("pwMsg").innerHTML = "비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
 		}
 	});
+	$("#pass").on("keyup",function(){
+		if((myform.me_pwd.value)==(myform.pwdChk.value)){
+			document.getElementById("pwMsg").innerHTML = "비밀번호가 일치합니다";
+		}else{
+			document.getElementById("pwMsg").innerHTML = "비밀번호가 일치하지 않습니다. 다시 확인해 주세요.";
+		}
+	});
 });
 
 //전화번호 자동하이픈

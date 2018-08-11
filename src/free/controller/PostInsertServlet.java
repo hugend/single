@@ -20,7 +20,6 @@ import free.service.FreeServiceImpl;
 @WebServlet(name = "fr/insert", urlPatterns = { "/fr/insert.do" })
 public class PostInsertServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("글쓰기 서블릿 요청 성공");
 		req.setCharacterEncoding("euc-kr");
 
 		// 파일 업로드 
@@ -46,9 +45,6 @@ public class PostInsertServlet extends HttpServlet {
 			String file = files.nextElement(); 
 			fr_img = multipart.getFilesystemName(file); 
 		}
-		
-
-		System.out.println("작성자 아이디:"+me_id);
 		
 		// 비지니스 메소드 호출
 		FreeDTO post = new FreeDTO(title, txt, ctg, fr_img, me_id);

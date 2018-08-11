@@ -7,4 +7,19 @@ public class FriendsQuery {
 	// 皋矫瘤 格废 
 	public static final String SEND_MSG = "select * from message where sender=?";
 	public static final String RECIEVE_MSG = "select * from message where receiver=?";
+	
+	// 模备 眠啊
+	public static final String INSERT_BD = "insert into bd_list values(?,?)";
+	
+	// 模备 昏力
+	public static final String DELETE_BD = "delete from bd_list where me_id=?, bd_id=?";
+	
+	// 喉发府胶飘 昏力
+	public static final String UPDATE_BLACK = "update member set me_black=0 where me_id=?";
+	// 模备 格废
+	public static final String SELECT_FRIENDS = "select * from bd_list where me_id=?";
+	
+	// 喉发府胶飘 格废
+	public static final String SELECT_BCKLIST = "select * from member where me_black>=10";
+
 }

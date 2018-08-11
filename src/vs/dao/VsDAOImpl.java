@@ -88,7 +88,7 @@ public class VsDAOImpl implements VsDAO {
 		ptmt.setInt(1, vs_no);
 		ResultSet rs = ptmt.executeQuery();
 		while (rs.next()) {
-			comment = new VsCmtDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5));
+			comment = new VsCmtDTO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getString(5));
 			comments.add(comment);
 		}
 		close(rs);

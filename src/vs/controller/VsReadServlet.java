@@ -28,6 +28,7 @@ public class VsReadServlet extends HttpServlet {
 		// 3. 데이터공유
 		request.setAttribute("posts", posts);
 		
+		
 		// 4. 요청재지정
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/vs/vsview.jsp");
 		rd.forward(request, response);

@@ -12,41 +12,28 @@ import java.util.ArrayList;
 import free.dto.FreeCmtDTO;
 
 public class FreeCmtDAOImpl implements FreeCmtDAO{
-
+	
 	@Override
-	public int insert(FreeCmtDTO cmt, Connection con) throws SQLException {
-		int result = 0;
-		System.out.println("´ñ±Û µî·Ï dao: " + cmt);
+	public ArrayList<FreeCmtDTO> getCmtList(int fr_no, Connection con) throws SQLException {
+		ArrayList<FreeCmtDTO> cmtlist = new ArrayList<FreeCmtDTO>();
 
-		PreparedStatement ptmt = con.prepareStatement(INSERT_CMT);
-		ptmt.setString(1, cmt.getFr_cmt_txt());
-		ptmt.setInt(2, cmt.getFr_no());
-
-		result = ptmt.executeUpdate();
+		FreeCmtDTO cmt = null;
+		PreparedStatement ptmt = con.prepareStatement(SELECT_CMT_LIST);
+		ptmt.setInt(1, fr_no);
 		
-		close(ptmt);
-		return result;
+		ResultSet rs = ptmt.executeQuery();
+		while (rs.next()) {
+			cmt = new FreeCmtDTO(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5));
+			cmtlist.add(cmt);
+		}
+
+		return cmtlist;
 	}
-
-	@Override
-	public int update(FreeCmtDTO cmt, Connection con) throws SQLException {
-		int result = 0;
-		System.out.println("´ñ±Û ¼öÁ¤ dao: " + cmt);
-
-		PreparedStatement ptmt = con.prepareStatement(UPDATE_CMT);
-		ptmt.setString(1, cmt.getFr_cmt_txt());
-		ptmt.setInt(2, cmt.getFr_cmt_no());
-
-		result = ptmt.executeUpdate();
-		
-		close(ptmt);
-		return result;
-	}
+	
 
 	@Override
 	public int delete(int fr_cmt_no, Connection con) throws SQLException {
 		int result = 0;
-		System.out.println("´ñ±Û »èÁ¦ dao: " + fr_cmt_no);
 
 		PreparedStatement ptmt = con.prepareStatement(DELETE_CMT);
 		ptmt.setInt(1, fr_cmt_no);
@@ -58,27 +45,20 @@ public class FreeCmtDAOImpl implements FreeCmtDAO{
 	}
 
 	@Override
-	public ArrayList<FreeCmtDTO> getCmtList(int fr_no, Connection con) throws SQLException {
-		ArrayList<FreeCmtDTO> cmtlist = new ArrayList<FreeCmtDTO>();
+	public int insert(FreeCmtDTO cmt, Connection con) throws SQLException {
+		int result = 0;
+		//System.out.println("´ñ±Û µî·Ï dao: " + cmt);
 
-		FreeCmtDTO cmt = null;
-		System.out.println("´ñ±Û ¸ñ·Ï dao¿äÃ»");
-		PreparedStatement ptmt = con.prepareStatement(SELECT_CMT_LIST);
-		ResultSet rs = ptmt.executeQuery();
+		PreparedStatement ptmt = con.prepareStatement(INSERT_CMT);
+		ptmt.setString(1, cmt.getFr_cmt_txt());
+		ptmt.setInt(2, cmt.getFr_no());
+		ptmt.setString(3, cmt.getMe_id());
 
-		while (rs.next()) {
-			cmt = new FreeCmtDTO(rs.getString(1), rs.getDate(2), rs.getString(3));
-			cmtlist.add(cmt);
-		}
-		System.out.println("fr_cmt ArraListÀÇ °¹¼ö: " + cmtlist.size());
-
-		return cmtlist;
-	}
-
-	@Override
-	public int count(int fr_no, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		result = ptmt.executeUpdate();
+		
+		close(ptmt);
+		return result;
 	}
 	
+
 }

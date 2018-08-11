@@ -112,4 +112,37 @@ public class FreeServiceImpl implements FreeService {
 		return postlist;
 	}
 
+	@Override
+	public int report(String me_id) {
+		int result = 0;
+		FreeDAO dao = new FreeDAOImpl();
+		Connection con = null;
+		try {
+			con = getConnect();
+			result = dao.report(me_id, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+		}
+		return result;
+	}
+
+	@Override
+	public ArrayList<FreeDTO> search(String column, String search) {
+		ArrayList<FreeDTO> postlist = null;
+		FreeDAO dao = new FreeDAOImpl();
+		Connection con = null;
+
+		try {
+			con = getConnect();
+			postlist = dao.search(column, search, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con);
+		}
+		return postlist;
+	}
+
 }

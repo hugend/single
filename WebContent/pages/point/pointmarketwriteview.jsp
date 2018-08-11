@@ -23,7 +23,7 @@
 				}
 			%>
 			<!-- content body -->
-			<form action="/single/po/insert.do" method="post">
+			<form action="/single/po/insert.do" method="post" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<td>Á¦¸ñ</td>

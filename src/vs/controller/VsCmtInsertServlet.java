@@ -20,20 +20,20 @@ public class VsCmtInsertServlet extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		System.out.println("Servlet요청성공");
 		
-		String vs_cmt_txt = "";
+		String vs_cmt_txt = request.getParameter("vs_cmt_txt");
 		String me_id = "ocean";
-		int vs_no = 50;
+		String vs_no = request.getParameter("vs_no");
 		
 		VsService service = new VsServiceImpl();
-		VsCmtDTO comment = new VsCmtDTO(vs_cmt_txt, me_id, vs_no);
+		VsCmtDTO comment = new VsCmtDTO(vs_cmt_txt, me_id, Integer.parseInt(vs_no));
 		System.out.println(comment);
 		int result = service.insert(comment);
 
 		String msg = "";
 		if (result >= 1) {
-			msg = result + "개 행 삽입 성공";
+			msg = result + "개 댓글 삽입 성공";
 		} else {
-			msg = "삽입실패";
+			msg = "댓글삽입실패";
 		}
 		System.out.println(msg);
 		
@@ -42,4 +42,3 @@ public class VsCmtInsertServlet extends HttpServlet {
 		response.sendRedirect("/single/vs/vs_read.do");
 	}
 }
-

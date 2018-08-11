@@ -62,6 +62,7 @@
 							<input type="hidden" name="mt_lat" id="latval"/>
 							<input type="hidden" name="mt_lng" id="lngval"/>
 							<input type="text" name="mt_map" id="result">
+							<input type="hidden" name="mt_loc" id="loc_result">
 							
 					 
 						</td>

@@ -50,22 +50,21 @@ public class MateMapServlet extends HttpServlet {
 			}
 			myjson.put("positions", pos);
 			
-			ServletContext context = this.getServletContext();
-			String file1 =getServletContext().getRealPath("common/json/location.json");
-			String file =getServletContext().getRealPath("/")+"common\\json\\json_test2.json";
-			String realpath = context.getRealPath("/common/json/json_test3.json");
-			String filepath = request.getContextPath();
-			System.out.println(realpath);
 			
+	/*		String realpath="";
+			String saveFolder = "/common/json/json_test6.json";
+			ServletContext context = getServletContext();
+			realpath = context.getRealPath(saveFolder);
+			System.out.println("리얼패쓰"+realpath);*/
 			
 			System.out.println(myjson.toJSONString());
 //			FileWriter fw = new FileWriter("c:\\temp\\test.json", false);
-			FileWriter fw = new FileWriter("c:\\temp\\json_test4.json", false);
+			FileWriter fw = new FileWriter("C:\\ICT\\webwork\\single\\WebContent\\common\\json\\json_test10.json", false);
 			fw.write(myjson.toJSONString());
 			fw.flush();
 			fw.close();
 			
-			request.setAttribute("jsonpath", realpath);
+			//request.setAttribute("jsonpath", realpath);
 			RequestDispatcher rd = request.getRequestDispatcher("/pages/mate/mate_mainview.jsp");
 			rd.forward(request, response);
 			

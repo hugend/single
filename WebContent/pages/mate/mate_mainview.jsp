@@ -13,11 +13,9 @@
 <script src="/single/common/scripts/jquery-mobilemenu.min.js"></script>
 
 
-
 </head>
 <body>
 	<%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); 
-	  String path = (String)request.getAttribute("jsonpath");
 	%>
 	<div class="wrapper row1">
 		<jsp:include page="/pages/template/Topbar.jsp" />
@@ -31,9 +29,9 @@
 			<%} %>
 			
 			<div>
-				<a><button class="btn btn-primary"><%=path %></button></a>
 				<button class="btn btn-primary" onclick="panTo()">내위치로</button>
 				<a href="/single/pages/mate/mate_writeview.jsp"><button class="btn btn-danger">소모임 만들기</button></a>
+				<h3 id="centerAddr"></h3>
 			</div>
 			
 			<!-- map body -->
@@ -64,9 +62,7 @@
 			// 클러스터 할 최소 지도 레벨 
 			});
 			// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다	 
-		<%-- $.get("<%=path%>", function(data) {  
-			$.get("/single/common/json/jsontest.json", function(data) {--%>
-			$.get("c:\\temp\\json_test4.json", function(data) {
+			$.get("/single/common/json/json_test10.json", function(data) {
 				// 데이터에서 좌표 값을 가지고 마커를 표시합니다
 				// 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
 				var markers = $(data.positions).map(function(i, position) {
@@ -78,6 +74,7 @@
 				clusterer.addMarkers(markers);
 			});
 		</script>
+		<script src="/single/common/scripts/mate/map.js"></script>
 			<% ArrayList<MateDTO> dtolist = (ArrayList<MateDTO>)request.getAttribute("dtolist");
 				int size = dtolist.size();%>
 
@@ -102,30 +99,6 @@
 						</article></a>
 					</li>
 						<% }%>
-<!-- 					<li>
-						<article>
-							<figure>
-								<a href="#"><img src="/single/images/demo/225x160.gif" alt=""></a>
-								<figcaption>2번 소모임</figcaption>
-							</figure>
-						</article>
-					</li>
-					<li>
-						<article>
-							<figure>
-								<a href="#"><img src="/single/images/demo/225x160.gif" alt=""></a>
-								<figcaption>3번 소모임</figcaption>
-							</figure>
-						</article>
-					</li>
-					<li class="last">
-						<article>
-							<figure>
-								<a href="#"><img src="/single/images/demo/225x160.gif" alt=""></a>
-								<figcaption>4번 소모임</figcaption>
-							</figure>
-						</article>
-					</li> -->
 
 				</ul>
 			</section>

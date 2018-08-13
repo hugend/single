@@ -35,6 +35,16 @@
 	text-align: center;
 }
 
+.button {
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
+	margin: 5px;
+}
+
 @media screen and (min-width: 768px) {
 	.modal:before {
 		display: inline-block;
@@ -131,6 +141,53 @@
 
 			<!-- ============================== -->
 
+			<!-- -=======================쪽지보내기======================== -->
+			<div class="modal fade" id="MessageModal<%=post.getMe_id()%>"
+				tabindex="-1" role="dialog" aria-labelledby="helpModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">Send Message</h4>
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times; </span><span class="sr-only">Close</span>
+							</button>
+						</div>
+						<form action="/single/msg/msg_insert.do" method="POST">
+							<div class="modal-body">
+								<div class="input-group">
+									<span class="input-group-addon">@ 받는 사람</span> <input
+										type="text" class="form-control"
+										placeholder="<%=post.getMe_id()%>" readonly="readonly" /> <input
+										type="hidden" name="receiver" value="<%=post.getMe_id()%>" />
+								</div>
+								<p></p>
+								<div class="input-group">
+									<span class="input-group-addon">@ 제목</span> <input type="text"
+										class="form-control" placeholder="제목" name="msg_title"
+										required="required" />
+								</div>
+								<p></p>
+								<div class="input-group">
+									<span class="input-group-addon">@ 메시지</span>
+									<textarea rows="8" cols="50" class="form-control"
+										placeholder="Message" name="msg_txt" required="required"></textarea>
+									<input type="hidden" name="sender"
+										value="<%=loginUser.getMe_id()%>" />
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="button btn-default"
+									style="float: right; width: 20%">등록</button>
+								<button type="button" class="button btn-default"
+									data-dismiss="modal" style="float: right; width: 20%">취소</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- ================================================ -->
 			<div id="kboard-document">
 				<div id="kboard-thumbnail-document">
 					<div class="kboard-document-wrap" itemscope
@@ -146,8 +203,14 @@
 										if (loginUser != null && !loginUser.getMe_id().equals(post.getMe_id())) {
 									%>
 									<a href="#infoModal" data-toggle="modal"
-										data-target="#infoModal"> <%}%> <%=post.getMe_id()%></a>
+										data-target="#infoModal"> <%
+ 	}
+ %> <%=post.getMe_id()%></a>
 								</div>
+								<a href="#" data-toggle="modal"
+									data-target="#MessageModal<%=post.getMe_id()%>"> <img
+									src="/single/images/mail.png" style="width: 20px">
+								</a>
 							</div>
 							<div class="detail-attr detail-date">
 								<div class="detail-name">작성일</div>
@@ -175,14 +238,19 @@
 
 						<div class="kboard-document-action">
 
-							<%if(!post.getMe_id().equals("single") && loginUser != null &&!post.getMe_id().equals(loginUser.getMe_id())){ %>
+							<%
+								if (!post.getMe_id().equals("single") && loginUser != null
+										&& !post.getMe_id().equals(loginUser.getMe_id())) {
+							%>
 							<div class="right">
 								<a
 									href="/single/fr/report.do?report_id=<%=post.getMe_id()%>&me_id=<%=loginUser.getMe_id()%>&no=<%=post.getFr_no()%>"
 									class="kboard-button-action kboard-button-print"
 									onclick="return confirm('신고 하시겠습니까?');">신고</a>
 							</div>
-							<%} %>
+							<%
+								}
+							%>
 						</div>
 
 					</div>
@@ -217,7 +285,10 @@
 													if (loginUser != null && !loginUser.getMe_id().equals(cmt.getMe_id())) {
 												%>
 												<a href="#infoModal" data-toggle="modal"
-													data-target="#infoModal"> <%}%> <%=cmt.getMe_id()%></a>
+													data-target="#infoModal"> <%
+ 	}
+ %> <%=cmt.getMe_id()%></a>
+
 											</div>
 											<div class="comments-list-create" itemprop="dateCreated"><%=cmt.getFr_cmt_date()%></div>
 											<div class="comments-list-content" itemprop="description"><%=cmt.getFr_cmt_txt()%></div>
@@ -282,7 +353,7 @@
 
 						<div class="right">
 							<%
-								if (loginUser != null && loginUser.getMe_id().equals(post.getMe_id())  && loginUser.getMe_black()<10) {
+								if (loginUser != null && loginUser.getMe_id().equals(post.getMe_id()) && loginUser.getMe_black() < 10) {
 							%>
 							<a
 								href="/single/fr/read.do?no=<%=post.getFr_no()%>&action=modify"

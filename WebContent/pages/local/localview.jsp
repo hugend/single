@@ -92,12 +92,12 @@
 					</li>
 					<%int lastpage = 0;
 					int firstpage = 0;
-					if(countPage-5<crtpage){
-						firstpage = countPage-9;
-					}else if(crtpage-5>=1){
-						firstpage = crtpage-5;
-					}else{
+					if(crtpage<=5){
 						firstpage = 1;
+					}else if(countPage-5<crtpage){
+						firstpage = countPage - 5;
+					}else{
+						firstpage = crtpage - 5;
 					}
 					if(countPage<=10){
 						lastpage = countPage;

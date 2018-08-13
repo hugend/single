@@ -23,6 +23,39 @@
 <%
 	ArrayList<FreeDTO> postlist = (ArrayList<FreeDTO>) request.getAttribute("postlist");
 	int size = postlist.size();
+	int pageNo = 0;
+	if(request.getParameter("page")==null){
+		pageNo = 1;
+	}else{
+		pageNo = Integer.parseInt(request.getParameter("page")); //현재페이지
+	}
+	System.out.println(pageNo);
+	int prdNum = postlist.size();
+	int totalPage = 0; // 총페이지수
+	if(prdNum%20==0){
+		totalPage = prdNum/20;
+	}else{
+		totalPage = prdNum/20 + 1;
+	}
+	int firstPage = 1; // 첫페이지
+	
+	if(pageNo<=5){
+		firstPage = 1;
+	}else if(totalPage-5<pageNo){
+		firstPage = totalPage - 5;
+	}else{
+		firstPage = pageNo - 5;
+	}
+	int lastPage = totalPage;	//마지막페이지
+	if(totalPage<=10){
+		lastPage = totalPage;
+	}else if(pageNo+5<=10){
+		lastPage = 10;
+	}else if(pageNo+5>=totalPage){
+		lastPage = totalPage;
+	}else{
+		lastPage = pageNo + 5;
+	}
 %>
 <!-- -------------------------------- -->
 
@@ -118,20 +151,28 @@
 				<!-- 리스트 끝 -->
 
 				<!-- 페이징 시작 -->
-				<div class="kboard-pagination">
-					<ul class="kboard-pagination-pages">
-						<li class="active"><a href="#" onclick="return false">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
-						<li><a href="#">8</a></li>
-						<li><a href="#">9</a></li>
-						<li><a href="#">10</a></li>
-						<li class="next-page"><a href="#">→</a></li>
-						<li class="last-page"><a href="#">마지막</a></li>
+				<div class="pagination">
+					<ul>
+						<li class="prev">
+						<%if(pageNo==1){ %>
+							&laquo; Previous
+						<%}else{ %>
+							<a href="/single/fr/list.do?category=recom&page=<%=pageNo-1%>">&laquo; Previous</a>
+						<%} %>
+						</li>
+							<%for(int i=firstPage;i<=lastPage;i++){ 
+								if(i==pageNo){%>
+								<li class="current"><strong><%=i %></strong></li>
+								<%}else{ %>
+								<li><a href="/single/fr/list.do?category=recom&page=<%=i%>"><%=i %></a></li>
+							<%}} %>
+						<li class="next">
+						<%if(pageNo==totalPage){ %>
+							Next &raquo;
+						<%}else{ %>
+							<a href="/single/fr/list.do?category=recom&page=<%=pageNo+1 %>">Next &raquo;</a>
+						<%} %>
+						</li>
 					</ul>
 				</div>
 				<!-- 페이징 끝 -->

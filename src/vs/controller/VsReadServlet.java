@@ -30,8 +30,6 @@ public class VsReadServlet extends HttpServlet {
 		request.setAttribute("posts", posts);
 		request.setAttribute("state", state);
 		
-		System.out.println("게시글들 어디감"+posts);
-
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/vs/vsview.jsp");
 		rd.forward(request, response);
 	}

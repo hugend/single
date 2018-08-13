@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import friends.service.FriendsService;
+import friends.service.FriendsServiceImpl;
+import member.dto.MemberDTO;
+import member.service.MemberService;
+import member.service.MemberServiceImpl;
 import vs.dto.VsCmtDTO;
 import vs.service.VsService;
 import vs.service.VsServiceImpl;
@@ -29,8 +34,6 @@ public class VsCmtReadServlet extends HttpServlet {
 		VsService service = new VsServiceImpl();
 		ArrayList<VsCmtDTO> comments = service.read(vs_no);
 
-		request.setAttribute("comments", comments);
-		
 		JSONObject cmtroot = new JSONObject();
 		JSONArray cmtjsonlist = new JSONArray();
 		int size = comments.size();
@@ -44,6 +47,9 @@ public class VsCmtReadServlet extends HttpServlet {
 			cmtjson.put("vs_cmt_date", date);
 			cmtjson.put("vs_no", comment.getVs_no());
 			cmtjson.put("me_id", comment.getMe_id());
+			MemberService sv = new MemberServiceImpl();
+			MemberDTO user = sv.getUserInfo(comment.getMe_id());
+			cmtjson.put("me_img", user.getMe_img());
 			cmtjsonlist.add(cmtjson);
 		}
 		cmtroot.put("cmtlist", cmtjsonlist);

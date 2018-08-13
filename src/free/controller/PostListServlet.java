@@ -21,7 +21,7 @@ public class PostListServlet extends HttpServlet {
 		req.setCharacterEncoding("euc-kr");
 		res.setContentType("text/html;charset=euc-kr");
 		
-		String pageno = req.getParameter("page");
+		String page = req.getParameter("page");
 		String category = req.getParameter("category");
 		String view="";
 		
@@ -49,7 +49,16 @@ public class PostListServlet extends HttpServlet {
 			postlist = service.getPostList();
 		}
 		
+		String url = "";
+		if(page==null){
+			url = "";
+		}else{
+			url = "?page="+page;
+		}
+		
 		int total = service.count();
+		
+		view= view+url;
 		
 		// 2.데이터공유
 		req.setAttribute("postlist", postlist);

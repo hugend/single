@@ -26,4 +26,5 @@ public class VsQuery {
 	
 	// vs´ñ±Û ¸ñ·Ï 
 	public static final String READ_COMMENTS = "select * from vs_cmt where vs_no=?";
+	
 }

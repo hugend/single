@@ -30,10 +30,11 @@
 		totalPage = prdNum/9 + 1;
 	}
 	int firstPage = 1; // 첫페이지
+	
 	if(pageNo<=5){
 		firstPage = 1;
 	}else if(totalPage-5<pageNo){
-		firstPage = totalPage-9;
+		firstPage = totalPage - 5;
 	}else{
 		firstPage = pageNo - 5;
 	}
@@ -64,14 +65,14 @@
 				if(i<size){
 				if(loginUser!=null && loginUser.getMe_id().equals("single")){		%>
 				<ul>
-					<li style="margin-left: 40px">
+					<li style="margin-left: 40px;">
 						<article>
 							<figure>
 								<p><%=prdlist.get(i).getPo_no() %></p>
 								<a href="/single/po/read.do?po_no=<%= prdlist.get(i).getPo_no() %>">
 								<img src="/single/upload/<%=prdlist.get(i).getPo_img() %>" alt="" 
 								style="width: 220px; height: 150px;"></a>
-								<figcaption><h4><%= prdlist.get(i).getPo_title() %></h4>
+								<figcaption style="height: 130px;"><h4><%= prdlist.get(i).getPo_title() %></h4>
 								필요 포인트: <%=prdlist.get(i).getPo_pt() %>
 								<p>작성일: <%=prdlist.get(i).getPo_date() %></p></figcaption>
 							</figure>
@@ -89,7 +90,7 @@
 									<a href="/single/po/read.do?po_no=<%= prdlist.get(i).getPo_no() %>">
 									<img src="/single/upload/<%=prdlist.get(i).getPo_img() %>" alt="" 
 									style="width: 220px; height: 150px;"></a>
-									<figcaption><h4><%= prdlist.get(i).getPo_title() %></h4>
+									<figcaption style="height: 130px;"><h4><%= prdlist.get(i).getPo_title() %></h4>
 									필요 포인트: <%=prdlist.get(i).getPo_pt() %>
 									<p>작성일: <%=prdlist.get(i).getPo_date() %></p></figcaption>
 								</figure>

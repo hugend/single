@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>메이트</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/single/common/scripts/jquery.min.js"></script>
 <script src="/single/common/scripts/jquery-mobilemenu.min.js"></script>
-
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 
 
 </head>
@@ -35,7 +35,7 @@
 			
 			<!-- map body -->
 			<div id="map" style="width: 100%; height: 400px;"></div>
-			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e389da52ac8c672d4985eead6dce0c46&libraries=services,clusterer,drawing"></script>
+			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df966331259820fab80b6c4e6b467d90&libraries=services,clusterer,drawing"></script>
 			<script type="text/javascript">
 			
 			var map = new daum.maps.Map(document.getElementById('map'), { // 지도를 표시할 div

@@ -9,6 +9,7 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>VS게시판</title>
+	<link rel="shortcut icon" href="/single/images/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/single/common/styles/layout.css" type="text/css" media="all">
 	<link rel="stylesheet" href="/single/common/styles/mediaqueries.css" type="text/css" media="all">

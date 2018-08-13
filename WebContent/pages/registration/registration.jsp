@@ -7,6 +7,7 @@
 <meta charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>registration</title>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="/single/common/styles/registration/registration.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

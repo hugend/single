@@ -18,6 +18,7 @@
     .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
     #info{width: 100%; text-align: center; margin-top: 15px; }
 </style>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 <script src="/single/common/scripts/mate/map.js"></script>
 
 

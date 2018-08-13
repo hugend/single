@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="/single/common/styles/mediaqueries.css" type="text/css" media="all">
 	<script src="/single/common/scripts/jquery.min.js"></script>
 	<script src="/single/common/scripts/jquery-mobilemenu.min.js"></script>
-	
+	<link rel="shortcut icon" href="/single/images/favicon.ico">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -52,20 +52,21 @@
 						<li class="w3-bar list-group-item">
 						<form action="/single/msg/msg_delete.do">
 							<div class="w3-bar-item">
-								<span class="w3-large"><%=msgs.get(i).getReceiver() %></span> 
-								<a href="#"><%=msgs.get(i).getMsg_title() %></a>
-								<span><%=msgs.get(i).getMsg_txt() %></span> 
+								<span class="w3-large" style="display:inline-block; width:100px;" ><%=msgs.get(i).getReceiver() %></span> 
+								<%=msgs.get(i).getMsg_title() %><br/>
+								<span style="display:inline-block; width:100px;"></span> 
+								<%=msgs.get(i).getMsg_txt() %>
 							</div>
-							<span class="action" style="float: right;">
-								<button type="button" class="btn btn-primary btn-xs" title="Edit">
+							<div class="action" style="float: right;">
+								<!-- <button type="button" class="btn btn-primary btn-xs" title="Edit">
 									<span class="glyphicon glyphicon-pencil">&nbsp;답장</span>
-								</button>
+								</button> -->
 								<button type="submit" class="btn btn-danger btn-xs" title="Delete" >
 									<span class="glyphicon glyphicon-trash">&nbsp;삭제</span>
 								</button>
 								<input type="hidden" name="msg_no" value="<%=msgs.get(i).getMsg_no()%>" />
 								<input type="hidden" name="option" value="send" />
-							</span>
+							</div>
 						</form>
 						</li>
 					</ul>
@@ -96,15 +97,15 @@
 						<li class="w3-bar list-group-item">
 						<form action="/single/msg/msg_delete.do">
 							<div class="w3-bar-item">
-								<span class="w3-large"><%=msgs.get(i).getMsg_title() %></span> 
+								<span class="w3-large" style="display:inline-block; width:180px;" ><%=msgs.get(i).getMsg_title() %></span> 
 							</div>
 							<div class="w3-bar-item">
-								<a href><span><%=msgs.get(i).getMsg_txt() %></span></a>
+								<span><%=msgs.get(i).getMsg_txt() %></span></a>
 							</div>
 							<div class="action" style="float: right;">
-								<button type="button" class="btn btn-primary btn-xs" title="Edit">
+								<!-- <button type="button" class="btn btn-primary btn-xs" title="Edit">
 									<span class="glyphicon glyphicon-pencil">&nbsp;답장</span>
-								</button>
+								</button> -->
 								<button type="submit" class="btn btn-danger btn-xs" title="Delete" >
 									<span class="glyphicon glyphicon-trash">&nbsp;삭제</span>
 								</button>

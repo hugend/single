@@ -1,0 +1,8 @@
+@CHARSET "EUC-KR";
+a img{
+	width: 210px;
+	height: 150px;
+}
+.eventBox{
+	height: 300px;
+}

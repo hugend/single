@@ -55,7 +55,8 @@
 							for (int i=0; i<size; i++) {
 								friend = friends.get(i);
 				%>
-				<li class="w3-bar list-group-item"><span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+				<li class="w3-bar list-group-item">
+					<a href="/single/friends/delete.do?id=<%=loginUser.getMe_id()%>&bd_id=<%=friend.getMe_id()%>" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-xlarge w3-right">×</a>
 					<img src="/single/upload/<%=friend.getMe_img() %>" class="col-sm-4 img-circle" style="width: 100px;height: 85px">
 					<div class="w3-bar-item">
 						<span class="w3-large"><%=friend.getMe_name()%></span> <%=friend.getMe_id() %><br>
@@ -63,6 +64,7 @@
 						<a href="#" data-toggle="modal" data-target="#MessageModal<%=friend.getMe_id() %>">쪽지	보내기</a>
 					</div>
 				</li>
+				
 				<%-- 쪽지 보내기--%>
 				<div class="modal fade" id="MessageModal<%=friend.getMe_id() %>" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
 					<div class="modal-dialog">

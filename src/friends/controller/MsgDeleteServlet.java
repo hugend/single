@@ -1,6 +1,7 @@
 package friends.controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -18,8 +19,10 @@ import friends.dto.MsgDTO;
 import friends.service.FriendsService;
 import friends.service.FriendsServiceImpl;
 import member.dto.MemberDTO;
+
 @WebServlet(name = "msg_delete", urlPatterns = { "/msg/msg_delete.do" })
 public class MsgDeleteServlet extends HttpServlet {
+	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("euc-kr");
 		System.out.println("Servlet요청성공");

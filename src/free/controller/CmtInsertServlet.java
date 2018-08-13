@@ -27,7 +27,7 @@ public class CmtInsertServlet extends HttpServlet {
 		String cmt_txt = req.getParameter("cmt");
 		int no = Integer.parseInt(req.getParameter("postno"));
 		String me_id = req.getParameter("id");
-
+ 
 		// 비지니스 메소드 호출
 		FreeCmtDTO cmt = new FreeCmtDTO(cmt_txt, no, me_id);
 		FreeCmtService service = new FreeCmtServiceImpl();

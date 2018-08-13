@@ -24,15 +24,22 @@ public class PointListServlet extends HttpServlet {
 	
 		
 		request.setCharacterEncoding("euc-kr");
+		String page = request.getParameter("page");
 		
+		String url = "";
+		if(page==null){
+			url = "/pages/point/pointmarketview.jsp";
+		}else{
+			url = "/pages/point/pointmarketview.jsp?page="+page;
+		}
+
 		ArrayList<PointDTO> prdlist = null;
-		
 		PointService service = new PointServiceImpl();
 		prdlist = service.po_list();
-		
+
 		request.setAttribute("prdlist", prdlist);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/point/pointmarketview.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 	

@@ -26,7 +26,7 @@
 	ArrayList<FreeDTO> freelist = board.FreeList();	
 	ArrayList<VsDTO> vslist = board.VsList();
 	ArrayList<PointDTO> pointlist = board.PointList();
-	int eventsize = eventlist.size();
+	// int eventsize = eventlist.size();
 	int matesize = matelist.size();
 	int freesize = freelist.size();
 	int vssize = vslist.size();
@@ -66,7 +66,7 @@
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 				</ol>
 				<div class="carousel-inner" role="listbox">
-					<%
+					<%-- <%
 						if(eventsize==0){
 							
 						}else{ 
@@ -87,7 +87,7 @@
 								<p><%=event.getLe_addr2() %></p>
 							</div>
 						</div>
-					<%}} %>
+					<%}} %> --%>
 				</div>
 				<!-- Left and right controls -->
 				<a class="left carousel-control" href="#myCarousel" role="button"

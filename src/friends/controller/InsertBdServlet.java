@@ -18,6 +18,7 @@ public class InsertBdServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("euc-kr");
+		req.setCharacterEncoding("euc-kr");
 
 		String me_id = req.getParameter("id");
 		String bd_id = req.getParameter("bd_id");

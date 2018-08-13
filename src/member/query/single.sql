@@ -155,6 +155,7 @@ values ('고양가을꽃축제2018','20180922','20181009','경기도고양시일산동구호수로 5
 
 delete from point;
 select * from point;
+insert into point values(point_seq.nextval,'test','test','test',22,sysdate,1,10);
 
 create table point(
    po_no number, 

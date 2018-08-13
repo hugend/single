@@ -1,17 +1,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="member.dto.MemberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<%
@@ -43,23 +40,17 @@
 						int size = blacklist.size();
 						for (int i = 0; i < size; i++) {
 				%>
-				<li class="w3-bar"><a type="button"
-					href="/single/black/delete.do?id=<%=blacklist.get(i).getMe_id()%>"
-					onclick="this.parentElement.style.display='none'"
-					class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</a> <img
-					src="/single/upload/<%=blacklist.get(i).getMe_img()%>"
-					class="w3-bar-item w3-circle w3-hide-small" style="width: 85px">
-					<div class="w3-bar-item">
-						<span class="w3-large"><%=blacklist.get(i).getMe_name()%>
-							/ </span> <span class="w3-large"><%=blacklist.get(i).getMe_id()%></span>
+				<li class="w3-bar"><a type="button" href="/single/black/delete.do?id=<%=blacklist.get(i).getMe_id()%>"
+					onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</a> 
+				<img src="/single/upload/<%=blacklist.get(i).getMe_img()%>" class="w3-bar-item w3-circle w3-hide-small" style="width: 85px">
+					<div class="w3-bar-item"> 
+						<span class="w3-large"><%=blacklist.get(i).getMe_name()%> / </span> 
+						<span class="w3-large"><%=blacklist.get(i).getMe_id()%></span>
 						<br> <span><%=blacklist.get(i).getMe_addr()%></span> <br>
-					</div></li>
-				<%
-					}
-					}
-				%>
+					</div>
+				</li>
+				<%}}%>
 			</ul>
-
 		</div>
 	</div>
 

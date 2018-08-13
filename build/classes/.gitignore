@@ -1,9 +1,30 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 /local/
 /member/
 /point/
+>>>>>>> refs/remotes/origin/kdy
 /free/
+<<<<<<< HEAD
+/fw/
+/member/
+/point/
+/local/
+=======
 /friends/
+<<<<<<< HEAD
+/fw/
+/local/
+/main/
+/mate/
+/member/
+/point/
+=======
+/fw/
+>>>>>>> refs/remotes/origin/osw
+/vs/
+=======
 /mate/
 <<<<<<< HEAD
 /member/
@@ -15,3 +36,5 @@
 >>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/kdy
 /fw/
+>>>>>>> refs/remotes/origin/kdy
+>>>>>>> refs/remotes/final/master

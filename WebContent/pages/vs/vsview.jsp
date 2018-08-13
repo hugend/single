@@ -9,6 +9,7 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>VS게시판</title>
+	<link rel="shortcut icon" href="/single/images/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/single/common/styles/layout.css" type="text/css" media="all">
 	<link rel="stylesheet" href="/single/common/styles/mediaqueries.css" type="text/css" media="all">
@@ -77,11 +78,12 @@
 				for(i in myjsonObj.cmtlist){
 					mydata = mydata + "<li class='list-group-item'><div class='row'>";
 					mydata = mydata + "<div class='col-xs-2 col-md-1'>";
-					mydata = mydata + "<img src='/single/images/irene.png' class='img-circle img-responsive' alt='' /></div>";
+					mydata = mydata + "<img src='/single/upload/"+myjsonObj.cmtlist[i].me_img;
+					mydata = mydata + "' class='img-circle img-responsive' alt='' style='width: 120px;height: 50px'/></div>";
 					mydata = mydata + "<div class='col-xs-10 col-md-11'><div class='comment-text'>";
 					mydata = mydata + myjsonObj.cmtlist[i].vs_cmt_txt;
 					mydata = mydata + "</div><div class='mic-info'>By: "
-					mydata = mydata + "<a href='#'>"+myjsonObj.cmtlist[i].me_id+"</a> on 2 Jul 2018</div></div></div></li>";
+					mydata = mydata + "<a href='#'>"+myjsonObj.cmtlist[i].me_id+"</a><br/>"+ myjsonObj.cmtlist[i].vs_cmt_date+"</div></div></div></li>";
 				}
 				// alert(mydata);
 				// alert(myjsonObj.cmtlist.length);
@@ -164,7 +166,7 @@
 			</div>
 				<br/><br/>
 				
-				<div class="bar">
+				<div class="bar" style="margin:auto;">
 					<jsp:include page="/pages/vs/bar.jsp" />
 				</div>
 				
@@ -200,7 +202,7 @@
 								<div class="modal-body">
 									<div class="input-group">
 										<span class="input-group-addon"> * 작성자</span> 
-										<input type="text" class="form-control" placeholder="<%=post.getMe_id()%>" name="me_id" />
+										<input type="text" class="form-control" placeholder="<%=loginUser.getMe_id()%>" name="me_id" value="<%=loginUser.getMe_id()%>"/>
 									</div>
 									<p></p>
 									<div class="input-group">

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Single Single</title>
+<title>포인트마켓</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/single/common/styles/layout.css"
 	type="text/css" media="all">

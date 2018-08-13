@@ -7,7 +7,8 @@
 	<% String addr=""; %>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e389da52ac8c672d4985eead6dce0c46&libraries=services"></script>
+	
+   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ebf7b2f2c5987b5f48041fd7c1490397"></script>
     <meta charset="utf-8">
     <title>좌표로 주소를 얻어내기</title>
     <style>
@@ -18,6 +19,7 @@
     .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
     #info{width: 100%; text-align: center; margin-top: 15px; }
 </style>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 <script src="/single/common/scripts/mate/map.js"></script>
 
 

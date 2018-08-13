@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/single/common/styles/local/local.css" type="text/css" media="all">
 <script src="/single/common/scripts/jquery.min.js"></script>
 <script src="/single/common/scripts/local/local.js"></script>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 </head>
 <body>
 <%
@@ -91,12 +92,12 @@
 					</li>
 					<%int lastpage = 0;
 					int firstpage = 0;
-					if(countPage-5<crtpage){
-						firstpage = countPage-9;
-					}else if(crtpage-5>=1){
-						firstpage = crtpage-5;
-					}else{
+					if(crtpage<=5){
 						firstpage = 1;
+					}else if(countPage-5<crtpage){
+						firstpage = countPage - 5;
+					}else{
+						firstpage = crtpage - 5;
 					}
 					if(countPage<=10){
 						lastpage = countPage;

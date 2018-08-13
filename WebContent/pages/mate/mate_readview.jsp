@@ -8,10 +8,11 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-	<title>Insert title here</title>
+	<title>메이트</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="/single/common/scripts/jquery.min.js"></script>
 	<script src="/single/common/scripts/jquery-mobilemenu.min.js"></script>
+	<link rel="shortcut icon" href="/single/images/favicon.ico">
 </head>
 <body>
 <%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); %>

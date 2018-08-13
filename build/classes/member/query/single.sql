@@ -20,6 +20,7 @@ drop table ma_join;
 drop table le_main;
 drop table point;
 
+select * from member;
 create table member(
 me_id varchar2(30),
 me_pwd varchar2(30),
@@ -155,7 +156,7 @@ values ('고양가을꽃축제2018','20180922','20181009','경기도고양시일산동구호수로 5
 
 delete from point;
 select * from point;
-insert into point values(point_seq.nextval,'test','test','test',22,sysdate,1,10);
+insert into point values(point_seq.nextval,'포인트테스트','포인트테스트','225x160.gif',300,sysdate,1,10);
 
 create table point(
    po_no number, 

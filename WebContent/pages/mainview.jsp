@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="/single/common/styles/main/main.css" media="screen">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 </head>
 <body>
 	<%
@@ -26,7 +27,7 @@
 	ArrayList<FreeDTO> freelist = board.FreeList();	
 	ArrayList<VsDTO> vslist = board.VsList();
 	ArrayList<PointDTO> pointlist = board.PointList();
-	// int eventsize = eventlist.size();
+	int eventsize = eventlist.size();
 	int matesize = matelist.size();
 	int freesize = freelist.size();
 	int vssize = vslist.size();
@@ -37,16 +38,7 @@
 		<jsp:include page="/pages/template/Topbar.jsp" />
 		<section id="shout" class="clear">
 			<figure>
-				<div>
-					<img src="/single/images/demo/410x440.gif" alt="">
-				</div>
-					<article class="one_half last">
-						<h2>What People Say About Us</h2>
-							<blockquote>
-							Justoid nonummy laoreet phasellent
-							penatoque in antesque pellus elis eget tincidunt. 
-							</blockquote>
-					</article>
+					<img src="/single/images/main/main.jpg" width="100%" height="100%" style="margin-left: 60px">
 			</figure>
 		</section>
 	</div>
@@ -66,7 +58,7 @@
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 				</ol>
 				<div class="carousel-inner" role="listbox">
-					<%-- <%
+					 <%
 						if(eventsize==0){
 							
 						}else{ 
@@ -87,7 +79,7 @@
 								<p><%=event.getLe_addr2() %></p>
 							</div>
 						</div>
-					<%}} %> --%>
+					<%}} %> 
 				</div>
 				<!-- Left and right controls -->
 				<a class="left carousel-control" href="#myCarousel" role="button"

@@ -25,8 +25,8 @@ public class GetEventList {
 			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 			String eventurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival";
 			//String key = "I8D75wKPpAZsS%2By%2FnPRx1lBAn758Wn1C4VkbUAmkbJr7YfuIXv77WgHujBFuM%2FCVZZK7IfCiRdWebdYCf6S7%2Fg%3D%3D";
-			String key = "awXAezeT7c3zw%2BPOuXQjQSfoYr%2F9a51vEId%2BOw03z7fw6t9%2FI42xr3raGyNCXcW1LR6Msdmtb7zZFS5jMqydWQ%3D%3D";
-			//String key= "Ptrpg9vwh%2BM%2FwcNhdxTTrDESZ72kDCPisr5pgUQ8IoGfQgeJn2Jr3oEsWLfgAOn8l8%2B1VT5%2FwfJ%2B%2BKeyUZ%2FgCA%3D%3D";
+			//String key = "awXAezeT7c3zw%2BPOuXQjQSfoYr%2F9a51vEId%2BOw03z7fw6t9%2FI42xr3raGyNCXcW1LR6Msdmtb7zZFS5jMqydWQ%3D%3D";
+			String key= "Ptrpg9vwh%2BM%2FwcNhdxTTrDESZ72kDCPisr5pgUQ8IoGfQgeJn2Jr3oEsWLfgAOn8l8%2B1VT5%2FwfJ%2B%2BKeyUZ%2FgCA%3D%3D";
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 			Calendar today = new GregorianCalendar();
 			String eventStartDate = sdf.format(today.getTime());

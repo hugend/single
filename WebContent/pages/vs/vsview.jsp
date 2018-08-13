@@ -111,9 +111,9 @@
 			<%if(loginUser!=null){ %>
 			<jsp:include page="/pages/template/floatingmenu.jsp" />
 			<%} %>
-			
+			<%if(loginUser!=null && loginUser.getMe_black()<10){ %>
 			<a href="/single/pages/vs/vspost.jsp">±Û¾²±â</a>
-			 
+			 <%} %>
 			<%
 				ArrayList<VsDTO> posts = (ArrayList<VsDTO>) request.getAttribute("posts");
 				String voteState = (String) request.getAttribute("state");
@@ -164,8 +164,7 @@
 					</div>
 					</form>
 			</div>
-				<br/><br/>
-				
+				<br/>
 				<div class="bar" style="margin:auto;">
 					<jsp:include page="/pages/vs/bar.jsp" />
 				</div>

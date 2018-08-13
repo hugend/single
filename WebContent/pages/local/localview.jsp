@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>지역행사</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- hs 추가 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

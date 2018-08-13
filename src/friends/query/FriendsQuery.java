@@ -19,7 +19,7 @@ public class FriendsQuery {
 	public static final String DELETE_BD = "delete from bd_list where me_id=?, bd_id=?";
 	
 	// 模备 格废
-	public static final String SELECT_FRIENDS = "select * from bd_list where me_id=?";
+	public static final String SELECT_FRIENDS = "select * from bd_list where me_id=? and bd_id in (select me_id from member where me_state='t')";
 	
 	// 喉发府胶飘 格废
 	public static final String SELECT_BCKLIST = "select * from member where me_black>=10";

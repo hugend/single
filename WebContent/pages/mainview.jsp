@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>singlesingle</title>
+<title>SingleSingle</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="EUC-KR">
 <link rel="stylesheet" href="/single/common/styles/main/main.css" media="screen">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -27,17 +27,17 @@
 				<table border="1">
 					<tr>
 						<td>제목</td>
-						<td><input type="text" name="po_title" size="40" value="">
+						<td><input type="text" name="po_title" size="40" value="" required>
 						</td>
 					</tr>
 					<tr>
 						<td>필요포인트</td>
-						<td><input type="text" name="po_pt" size="10" value="">
+						<td><input type="text" name="po_pt" size="10" value="" required>
 						</td>
 					</tr>
 					<tr>
 						<td>수량</td>
-						<td><input type="text" name="po_count" size="10" value="">
+						<td><input type="text" name="po_count" size="10" value="" required>
 						</td>
 					</tr>
 					<tr>
@@ -54,7 +54,7 @@
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td><textarea name="po_txt" cols="100" rows="8"></textarea></td>
+						<td><textarea name="po_txt" cols="100" rows="8" required></textarea></td>
 					</tr>
 				</table>
 				<footer class="more">

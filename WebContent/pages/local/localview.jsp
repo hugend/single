@@ -14,23 +14,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/single/common/styles/local/select.css" type="text/css" media="all">
 <!-- --------------- -->
+<link rel="stylesheet" href="/single/common/styles/local/local.css" type="text/css" media="all">
 <script src="/single/common/scripts/jquery.min.js"></script>
-<style type="text/css">
-a img{
-	width: 210px;
-	height: 150px;
-}
-.eventBox{
-	height: 300px;
-}
-</style>
-<script type="text/javascript">
-		var href;
-		function selectArea(myform) {
-			index = myform.area.selectedIndex;
-			location.href="/single/local/list.do?areaCode="+myform.area.options[index].value+"&page=1";
-		}
-</script>
+<script src="/single/common/scripts/local/local.js"></script>
 </head>
 <body>
 <%
@@ -105,10 +91,12 @@ a img{
 					</li>
 					<%int lastpage = 0;
 					int firstpage = 0;
-					if(crtpage-4>=1){
-						firstpage = crtpage-4;
+					if(countPage-5<crtpage){
+						firstpage = countPage-9;
+					}else if(crtpage-5>=1){
+						firstpage = crtpage-5;
 					}else{
-						firstpage = crtpage;
+						firstpage = 1;
 					}
 					if(countPage<=10){
 						lastpage = countPage;

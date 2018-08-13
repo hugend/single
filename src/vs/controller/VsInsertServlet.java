@@ -34,10 +34,7 @@ public class VsInsertServlet extends HttpServlet {
 		VsDTO post = new VsDTO(vs_title, vs_optionA, vs_optionB, vs_txt, me_id);
 		System.out.println(post);
 		int result = service.insert(post);
-		System.out.println(vs_title);
-		System.out.println(vs_optionA);
-		System.out.println(vs_optionB);
-		System.out.println(vs_txt);
+
 		String msg = "";
 		if (result >= 1) {
 			msg = result + "개 행 삽입 성공";

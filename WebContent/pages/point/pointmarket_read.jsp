@@ -23,49 +23,11 @@
 <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <link rel='stylesheet' id='kboard-skin-thumbnail-css' href='/single/common/styles/free/thumbnail.css?ver=5.3.9' type='text/css' media='all' />
 <link rel='stylesheet' id='kboard-comments-skin-default-css' href='/single/common/styles/free/comments.css?ver=4.4.4' type='text/css' media='all' />
-<style type="text/css">
-.modal {
-	text-align: center;
-}
-
-@media screen and (min-width: 768px) {
-	.modal:before {
-		display: inline-block;
-		vertical-align: middle;
-		content: " ";
-		height: 100%;
-	}
-}
-.modal-dialog {
-	display: inline-block;
-	vertical-align: middle;
-}
-</style>
-<script type="text/javascript">
-$(document).ready(function(){
-	$("#buyBtn").on("click", function(){
-			var userid = $("#userid").val();
-			var po_no = $("#po_no").val();
-		 	if(userid==""){
-				alert("로그인해주세요");
-			}else{
-				location.href="/single/po/buy.do?userid="+userid+"&po_no="+po_no;
-			} 
-	});
-});
-window.onload = function(){
-	if($("#state").val()==0){
-		alert("포인트가 부족합니다.");
-		document.getElementById("#state").value = "";
-	}else if($("#state").val()==1){
-		alert("구매가 완료되었습니다.");
-		document.getElementById("#state").value = "";
-	}
-}
-</script>
+<link rel='stylesheet' href='/single/common/styles/point/point.css' type='text/css' media='all' />
 <!-- -------------------------------- -->
 <script src="/single/common/scripts/jquery.min.js"></script>
 <script src="/single/common/scripts/jquery-mobilemenu.min.js"></script>
+<script type="text/javascript" src="/single/common/scripts/point/point.js"></script>
 </head>
 <body>
 <% 
@@ -116,6 +78,12 @@ window.onload = function(){
 								<div class="detail-name">작성일</div>
 								<div class="detail-value"><%=prd.getPo_date() %></div>
 							</div>
+							<% if(loginUser!=null && loginUser.getMe_id().equals("single")){ %>
+								<div class="detail-attr detail-view">
+								<div class="detail-name">공개여부</div>
+								<div class="detail-value"><%if(prd.getPo_state()==1){ %>공개<%}else{ %>비공개<%} %></div>
+							</div>
+							<%} %>
 						</div>
 						<div class="kboard-content" itemprop="description">
 							<div class="content-view">
@@ -130,7 +98,7 @@ window.onload = function(){
 
 					<div class="kboard-control">
 						<div class="left">
-						<input type="button" id="buyBtn" value="구매하기"/> 
+						<input type="button" class="btn btn-danger" id="buyBtn" value="구매하기"/> 
 						<input type="hidden" id="state" value="<%=state%>"/>
 						</div>
 						<%if(loginUser!=null && loginUser.getMe_id().equals("single")){ %>
@@ -144,7 +112,6 @@ window.onload = function(){
 				</div>
 			</div>
 			<br />
-
 		</div>
 		<!-- ################################################################################################ -->
 		<div class="clear"></div>

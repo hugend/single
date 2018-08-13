@@ -77,11 +77,12 @@
 				for(i in myjsonObj.cmtlist){
 					mydata = mydata + "<li class='list-group-item'><div class='row'>";
 					mydata = mydata + "<div class='col-xs-2 col-md-1'>";
-					mydata = mydata + "<img src='/single/images/irene.png' class='img-circle img-responsive' alt='' /></div>";
+					mydata = mydata + "<img src='/single/images/"+myjsonObj.cmtlist[i].me_img;
+					mydata = mydata + "' class='img-circle img-responsive' alt='' style='width: 120px;height: 50px'/></div>";
 					mydata = mydata + "<div class='col-xs-10 col-md-11'><div class='comment-text'>";
 					mydata = mydata + myjsonObj.cmtlist[i].vs_cmt_txt;
 					mydata = mydata + "</div><div class='mic-info'>By: "
-					mydata = mydata + "<a href='#'>"+myjsonObj.cmtlist[i].me_id+"</a> on 2 Jul 2018</div></div></div></li>";
+					mydata = mydata + "<a href='#'>"+myjsonObj.cmtlist[i].me_id+"</a><br/>"+ myjsonObj.cmtlist[i].vs_cmt_date+"</div></div></div></li>";
 				}
 				// alert(mydata);
 				// alert(myjsonObj.cmtlist.length);
@@ -200,7 +201,7 @@
 								<div class="modal-body">
 									<div class="input-group">
 										<span class="input-group-addon"> * ÀÛ¼ºÀÚ</span> 
-										<input type="text" class="form-control" placeholder="<%=post.getMe_id()%>" name="me_id" />
+										<input type="text" class="form-control" placeholder="<%=loginUser.getMe_id()%>" name="me_id" value="<%=loginUser.getMe_id()%>"/>
 									</div>
 									<p></p>
 									<div class="input-group">

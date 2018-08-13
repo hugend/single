@@ -49,8 +49,9 @@ public class PointInsertServlet extends HttpServlet {
 		}
 		int po_pt = Integer.parseInt(multipart.getParameter("po_pt"));
 		int po_state = Integer.parseInt(multipart.getParameter("po_state"));
+		int po_count = Integer.parseInt(multipart.getParameter("po_count"));
 		
-		PointDTO dto = new PointDTO(po_title, po_txt, po_img,  po_pt, po_state);
+		PointDTO dto = new PointDTO(po_title, po_txt, po_img,  po_pt, po_state, po_count);
 		int result = 0;
 		PointService service = new PointServiceImpl();
 		result = service.po_insert(dto);

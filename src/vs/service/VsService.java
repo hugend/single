@@ -15,6 +15,8 @@ public interface VsService {
 	
 	int update(int vs_no, String option);	// 투표수 업데이트
 	
+	int voting(int vs_no, String me_id, String opt);	// 중복 투표 방지
+	
 	int insert(VsCmtDTO comment);	// vs댓글 작성
 	
 	ArrayList<VsCmtDTO> read(int vs_no);	// vs댓글 목록

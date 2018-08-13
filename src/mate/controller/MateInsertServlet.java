@@ -13,6 +13,7 @@ import mate.dto.MateDTO;
 import mate.service.MateService;
 import mate.service.MateServiceImpl;
 
+
 @WebServlet(name = "mt/insert.do", urlPatterns = { "/mt/insert.do" })
 public class MateInsertServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,8 +43,6 @@ public class MateInsertServlet extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/mt/list.do");
 		rd.forward(request, response);
-	
 		
 	}
-
 }

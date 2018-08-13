@@ -11,6 +11,10 @@ public class VsQuery {
 	public static final String UPDATE_OPTA = "update VS_BOARD set vs_hitsA = vs_hitsA+1 where vs_no=?";
 	public static final String UPDATE_OPTB = "update VS_BOARD set vs_hitsB = vs_hitsB+1 where vs_no=?";
 	
+	// 중복 투표 방지
+	public static final String INSERT_VOTING = "insert into vs_voting values(?, ?, ?)";
+	public static final String CHECK_VOTING = "select * from vs_voting where vs_no=? and me_id=?";
+	
 	// vs게시글 업데이트
 	public static final String UPDATE_POST = "update vs_board set vs_title=?, vs_optionA=?, vs_optionB=?, vs_txt=? where vs_no=?";
 	

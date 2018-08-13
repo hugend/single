@@ -13,17 +13,16 @@ import friends.service.FriendsServiceImpl;
 
 @WebServlet(name = "black/delete", urlPatterns = { "/black/delete.do" })
 public class BlackDeleteServlet extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("euc-kr");
+		System.out.println("Servlet요청성공");
 
-		// 클라이언트의 요청정보 추출
 		String me_id = req.getParameter("id");
 
-		// 비지니스 메소드 호출
 		FriendsService service = new FriendsServiceImpl();
 		int result = service.deleteBlack(me_id);
 
-		// 요청재지정
 		res.sendRedirect("/single/black/blacklist.do");
 	}
 }

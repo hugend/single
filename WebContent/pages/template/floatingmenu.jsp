@@ -21,7 +21,7 @@
 				<li><input id="floatingbtn1" type="button" value="회원정보"
 					class="btn" onclick="location.href='/single/memberinfo.do?action=READ'">
 					<input id="floatingbtn2" type="button" value="친구관리" class="btn"
-					onclick="location.href='/single/friends/list.do'">
+					onclick="location.href='/single/friends/list.do?me_id=<%=loginUser.getMe_id()%>'">
 					<%if(loginUser.getMe_id().equals("single")){ %>
 					<input id="floatingbtn2" type="button" value="블랙리스트" class="btn"
 					onclick="location.href='/single/black/blacklist.do'">

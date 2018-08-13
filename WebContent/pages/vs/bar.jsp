@@ -28,7 +28,6 @@
 					<span class="block" title="ÃßÃµ¼ö : <%=request.getAttribute("cntB")%>"> <span class="value"><%=(int) ratingB %></span></span>
 				</div>
 			</div>
-
 		</div>
 	</figure>
 	

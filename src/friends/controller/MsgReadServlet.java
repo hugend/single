@@ -13,24 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 import friends.dto.MsgDTO;
 import friends.service.FriendsService;
 import friends.service.FriendsServiceImpl;
-
+// 받은 쪽지, 보낸 쪽지
 @WebServlet(name = "msg_read", urlPatterns = { "/msg/msg_read.do" })
 public class MsgReadServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
 		System.out.println("Servlet요청성공");
-
-		String me_id = "ocean";
-		String option = "A";	// 받은 쪽지, 보낸 쪽지 구분
+		
+		String me_id = request.getParameter("me_id");
+		String option = request.getParameter("option");
 		
 		FriendsService service = new FriendsServiceImpl();
 		ArrayList<MsgDTO> msgs = service.readMsg(option, me_id);
 		
-		System.out.println("메시지"+msgs);
-		
 		request.setAttribute("msgs", msgs);
-		
+		request.setAttribute("option", option);
+		System.out.println("메시지들 : "+msgs);
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/friends/friendsview_message.jsp");
 		rd.forward(request, response);
 	}

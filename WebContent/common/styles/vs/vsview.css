@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 
-#bar{
+.bar{
 	width: 100%;
 	float: center;
 	margin: 0px auto;
@@ -20,7 +20,7 @@
     float: right;
     background-color:#EC4D48;
     margin: 5px;
-	}
+}
 
 .btnA{
   padding: 15px 25px;
@@ -70,7 +70,7 @@
 }
 
 /* style inputs and link buttons */
-.btn {
+/* .btn {
 	width: 100%;
 	padding: 12px;
 	border: none;
@@ -80,8 +80,8 @@
 	display: inline-block;
 	font-size: 17px;
 	line-height: 20px;
-	text-decoration: none; /* remove underline from anchors */
-}
+	text-decoration: none; remove underline from anchors
+} */
 
 /* Two-column layout */
 .col {

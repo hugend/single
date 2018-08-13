@@ -35,7 +35,7 @@ function logout(){
 }
 function logoutCallback() {
 	if(xhr.readyState==4&&xhr.status==200){
-		document.location.reload();
+		document.location.href="/single/pages/mainview.jsp";
 	}
 }
 

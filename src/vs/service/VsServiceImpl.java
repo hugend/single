@@ -63,6 +63,23 @@ public class VsServiceImpl implements VsService {
 		}
 		return result;
 	}
+	
+	@Override
+	public int voting(int vs_no, String me_id, String opt) {	// 중복 투표 방지
+		System.out.println("Service요청");
+		int result = 0;
+		Connection con = null;		
+		VsDAO dao = new VsDAOImpl();	
+		try {
+			con = getConnect();
+			result = dao.voting(vs_no, me_id, opt, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return result;
+	}
 
 	@Override
 	public int insert(VsCmtDTO comment) {	// vs댓글 작성
@@ -97,4 +114,6 @@ public class VsServiceImpl implements VsService {
 		}		
 		return comments;
 	}
+
+	
 }

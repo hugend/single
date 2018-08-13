@@ -114,4 +114,17 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return result;
 	}
+
+	@Override
+	public int point_update(int me_point, String me_id, Connection con) throws SQLException {
+		int result = 0;
+		PreparedStatement ptmt = con.prepareStatement(USER_POINT_UPDATE);
+		ptmt.setInt(1, me_point);
+		ptmt.setString(2, me_id);
+		
+		result = ptmt.executeUpdate();
+		close(ptmt);
+		
+		return result;
+	}
 }

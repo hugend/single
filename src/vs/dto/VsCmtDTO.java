@@ -3,11 +3,11 @@ package vs.dto;
 import java.sql.Date;
 public class VsCmtDTO {
 	
-	int vs_cmt_no;		// 댓글번호
-	String vs_cmt_txt;	// 댓글내용
-	Date vs_cmt_date;	// 작성일
-	int vs_no;			// 글번호
-	String me_id;		// 작성자ID
+	private int vs_cmt_no;		// 댓글번호
+	private String vs_cmt_txt;	// 댓글내용
+	private Date vs_cmt_date;	// 작성일
+	private int vs_no;			// 글번호
+	private String me_id;		// 작성자ID
 
 	public VsCmtDTO(){}
 

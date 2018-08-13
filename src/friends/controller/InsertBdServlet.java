@@ -18,18 +18,16 @@ public class InsertBdServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("euc-kr");
+		req.setCharacterEncoding("euc-kr");
 
-		// 클라이언트의 요청정보 추출
 		String me_id = req.getParameter("id");
 		String bd_id = req.getParameter("bd_id");
 		int no = Integer.parseInt(req.getParameter("postno"));
 
-		// 비지니스 메소드 호출
 		BdDTO bd = new BdDTO(me_id, bd_id);
 		FriendsService service = new FriendsServiceImpl();
 		int result = service.insertBd(bd);
 		
-		// 요청재지정
 		res.sendRedirect("/single/fr/read.do?no="+no+"&action=read");
 	}
 }

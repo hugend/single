@@ -20,17 +20,16 @@ public class PointReadServlet extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		
 		int po_no = Integer.parseInt(request.getParameter("po_no"));
-		System.out.println("±Û¹øÈ£"+po_no);
-		PointDTO dto = null;
+		String state = request.getParameter("state");
+		System.out.println(state);
+		PointDTO prd = null;
 		PointService service = new PointServiceImpl();
-		dto = service.po_read(po_no);
-		System.out.println(dto);
-		request.setAttribute("dto", dto);
+		prd = service.po_read(po_no);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/point/pointmarketreadview.jsp");
+		request.setAttribute("prd", prd);
+		request.setAttribute("state", state);
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/point/pointmarket_read.jsp");
 		rd.forward(request, response);
 	
 	}
-
-
 }

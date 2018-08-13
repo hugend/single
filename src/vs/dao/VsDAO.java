@@ -15,6 +15,8 @@ public interface VsDAO {
 	
 	int update(int vs_no, String option, Connection con) throws SQLException;	// 투표수 업데이트
 	
+	int voting(int vs_no, String me_id, String opt, Connection con) throws SQLException;	// 중복 투표 방지
+	
 	int insert(VsCmtDTO comment, Connection con) throws SQLException; 	// vs댓글 작성
 	
 	ArrayList<VsCmtDTO> read(int vs_no, Connection con) throws SQLException;	// vs댓글 목록

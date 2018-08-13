@@ -10,7 +10,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import local.dto.LocalDTO;
-//지역정보
+//지역정보 
 public class GetLocalList {
 	public ArrayList<LocalDTO> getLocalList(){
 		ArrayList<LocalDTO> locallist = new ArrayList<LocalDTO>();

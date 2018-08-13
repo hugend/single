@@ -8,27 +8,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import friends.dto.BdDTO;
 import friends.service.FriendsService;
 import friends.service.FriendsServiceImpl;
+import member.dto.MemberDTO;
 
-@WebServlet(name = "friends/delete", urlPatterns = { "/friends/delete.do" })
+@WebServlet(name = "deletefriends", urlPatterns = { "/friends/delete.do" })
 public class DeleteBdServlet extends HttpServlet {
 	
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("euc-kr");
+		System.out.println("Servlet요청성공");
 
-		// 클라이언트의 요청정보 추출
 		String me_id = req.getParameter("id");
 		String bd_id = req.getParameter("bd_id");
 
-		// 비지니스 메소드 호출
 		BdDTO bd = new BdDTO(me_id, bd_id);
 		FriendsService service = new FriendsServiceImpl();
 		int result = service.deleteBd(bd);
 		
-		// 요청재지정
-		//res.sendRedirect("/single/fr/read.do?no="+no+"&action=read");
+		if(me_id==null){
+			HttpSession ses = req.getSession(false);
+			MemberDTO loginUser = (MemberDTO) ses.getAttribute("loginUser");
+			me_id=loginUser.getMe_id();
+		}
+		
+		res.sendRedirect("/single/friends/list.do?me_id="+me_id);
 	}
 }

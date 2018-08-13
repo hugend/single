@@ -59,8 +59,28 @@ public class VsDAOImpl implements VsDAO {
 		PreparedStatement ptmt = con.prepareStatement(sql);
 		ptmt.setInt(1, vs_no);
 		result = ptmt.executeUpdate();
-		System.out.println(result);
 		close(ptmt);
+		return result;
+	}
+	
+	@Override
+	public int voting(int vs_no, String me_id, String opt, Connection con) throws SQLException {	// 중복 투표 방지
+		System.out.println("DAO요청");
+		int result = 0;
+		PreparedStatement ptmtCh = con.prepareStatement(CHECK_VOTING);
+		ptmtCh.setInt(1, vs_no);
+		ptmtCh.setString(2, me_id);
+		ResultSet rs = ptmtCh.executeQuery();
+		if (rs.next()) {	// 이미 투표함
+			result = 1;		
+		}else {		// 처음 투표 할 때 insert
+			PreparedStatement ptmtVT = con.prepareStatement(INSERT_VOTING);
+			ptmtVT.setInt(1, vs_no);
+			ptmtVT.setString(2, me_id);
+			ptmtVT.setString(3, opt);
+			ptmtVT.executeUpdate();
+		}		
+		close(ptmtCh);
 		return result;
 	}
 
@@ -95,4 +115,5 @@ public class VsDAOImpl implements VsDAO {
 		close(ptmt);
 		return comments;
 	}
+
 }

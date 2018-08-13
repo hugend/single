@@ -21,15 +21,17 @@ public class VsReadServlet extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		System.out.println("Servlet요청성공");
 
-		// 2. 비지니스 메소드 호출
+		String state = request.getParameter("state");
+		System.out.println("state : "+state);
+
 		VsService service = new VsServiceImpl();
 		ArrayList<VsDTO> posts = service.read();
 
-		// 3. 데이터공유
 		request.setAttribute("posts", posts);
+		request.setAttribute("state", state);
 		
-		
-		// 4. 요청재지정
+		System.out.println("게시글들 어디감"+posts);
+
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/vs/vsview.jsp");
 		rd.forward(request, response);
 	}

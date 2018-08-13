@@ -41,9 +41,9 @@ public class FriendsDAOImpl implements FriendsDAO {
 		ArrayList<MsgDTO> msgs = new ArrayList<MsgDTO>();
 		MsgDTO msg = null;
 		String sql = "";
-		if(option.equals("A")){
+		if(option.equals("send")){
 			sql = SEND_MSG;
-		}else if(option.equals("B")){
+		}else if(option.equals("receive")){
 			sql = RECIEVE_MSG;
 		}
 		PreparedStatement ptmt = con.prepareStatement(sql);
@@ -57,6 +57,17 @@ public class FriendsDAOImpl implements FriendsDAO {
 		close(ptmt);
 		return msgs;
 	}
+	
+	@Override
+	public int deleteMsg(String msg_no, Connection con) throws SQLException {	// 메시지 삭제
+		int result = 0;
+		PreparedStatement ptmt = con.prepareStatement(DELETE_MSG);
+		ptmt.setString(1, msg_no);
+		result = ptmt.executeUpdate();
+		close(ptmt);
+		return result;
+	}
+
 
 	@Override
 	public int insertBd(BdDTO bd, Connection con) throws SQLException {	// 친구 추가
@@ -73,7 +84,7 @@ public class FriendsDAOImpl implements FriendsDAO {
 	}
 
 	@Override
-	public int deleteBd(BdDTO bd, Connection con) throws SQLException {
+	public int deleteBd(BdDTO bd, Connection con) throws SQLException {	// 친구 삭제
 		int result = 0;
 
 		PreparedStatement ptmt = con.prepareStatement(DELETE_BD);

@@ -1,12 +1,16 @@
 package friends.query;
 
 public class FriendsQuery {
+	
 	// 메시지 삽입
 	public static final String INSERT_MSG = "insert into message values(msg_seq.nextval, ?, ?, ?, ?, sysdate)";
 
 	// 메시지 목록 
 	public static final String SEND_MSG = "select * from message where sender=?";
 	public static final String RECIEVE_MSG = "select * from message where receiver=?";
+	
+	// 메시지 삭제
+	public static final String DELETE_MSG = "delete from message where msg_no=?";
 	
 	// 친구 추가
 	public static final String INSERT_BD = "insert into bd_list values(?,?)";

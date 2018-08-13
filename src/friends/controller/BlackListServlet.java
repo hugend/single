@@ -21,9 +21,11 @@ import member.service.MemberServiceImpl;
 
 @WebServlet(name = "black/blacklist", urlPatterns = { "/black/blacklist.do" })
 public class BlackListServlet extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
-
+		System.out.println("Servlet요청성공");
+ 
 		FriendsService service = new FriendsServiceImpl();
 		ArrayList<MemberDTO> blacklist = service.BckList();
 		

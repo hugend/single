@@ -47,6 +47,23 @@ public class FriendsServiceImpl implements FriendsService {
 		close(con);
 		return msgs;
 	}
+	
+	@Override
+	public int deleteMsg(String msg_no) {	// 메시지 삭제
+		int result = 0;
+		Connection con = null;		
+		FriendsDAO dao = new FriendsDAOImpl();	
+		try {
+			con = getConnect();
+			result = dao.deleteMsg(msg_no, con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(con);
+		}
+		return result;
+
+	}
 
 	@Override
 	public int insertBd(BdDTO bd) {	// 친구 추가
@@ -64,7 +81,7 @@ public class FriendsServiceImpl implements FriendsService {
 	}
 
 	@Override
-	public int deleteBd(BdDTO bd) {
+	public int deleteBd(BdDTO bd) {	// 친구 삭제
 		int result = 0;
 		Connection con = null;		
 		FriendsDAO dao = new FriendsDAOImpl();	

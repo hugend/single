@@ -27,39 +27,42 @@
 				<table border="1">
 					<tr>
 						<td>제목</td>
-						<td><input type="text" name="po_title" size="40" value="">
+						<td><input type="text" name="po_title" size="40" value="" required>
 						</td>
 					</tr>
 					<tr>
-						<td>소비포인트</td>
-						<td><input type="text" name="po_pt" size="10" value="">
+						<td>필요포인트</td>
+						<td><input type="text" name="po_pt" size="10" value="" required>
+						</td>
+					</tr>
+					<tr>
+						<td>수량</td>
+						<td><input type="text" name="po_count" size="10" value="" required>
 						</td>
 					</tr>
 					<tr>
 						<td>공개여부</td>
-						<td>공개<input type="radio" name="po_state" value="1" />비공개<input
-							type="radio" name="po_state" value="2" /></td>
+						<td>공개<input type="radio" name="po_state" value="1" checked/>
+						비공개<input type="radio" name="po_state" value="2" /></td>
 					</tr>
 					<tr>
 						<td>이미지</td>
-						<td><input type="file" name="po_img"></td>
+						<td><img src="" id="po_img" style="width: 245px; height: 150px; border-style: solid;"> 
+						<br/>
+						<input type="file" name="po_img" onchange="document.getElementById('po_img').src = window.URL.createObjectURL(this.files[0])"
+							accept="upload/*"></td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td><textarea name="po_txt" cols="100" rows="8"></textarea></td>
+						<td><textarea name="po_txt" cols="100" rows="8" required></textarea></td>
 					</tr>
 				</table>
 				<footer class="more">
-					<a href="#">취소</a>
+					<a href="/single/po/list.do">취소</a>
 				</footer>
-				<footer class="more">
-					<input type="submit" value="등록">
-				</footer>
+					<input class="btn btn-danger" type="submit" value="등록">
 			</form>
-			<!-- ####################################################################################################### -->
-			<!-- ####################################################################################################### -->
 			<!-- / content body -->
-			<!-- ################################################################################################ -->
 			<div class="clear"></div>
 		</div>
 	</div>

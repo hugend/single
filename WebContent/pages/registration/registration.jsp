@@ -34,7 +34,7 @@
 						<img class="img-circle" src="/single/images/basicUser.png" id="me_img"> <input
 							type="file" name="me_img"
 							onchange="document.getElementById('me_img').src = window.URL.createObjectURL(this.files[0])"
-							accept="image/*">
+							accept="upload/*">
 					</div>
 				</div>
 				<!-- ¾ÆÀÌµð -->

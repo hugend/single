@@ -40,6 +40,8 @@ me_img varchar2(200),
 me_loc varchar2(200),
 me_black number);
 
+update member set me_point=5000 where me_id='single';
+
 create table bd_list(
 me_id varchar2(30),
 bd_id varchar2(30));
@@ -151,6 +153,10 @@ values ('서울밤도깨비야시장2018', '20180330', '20181028','서울특별시 영등포구 여
 insert into le_main
 values ('고양가을꽃축제2018','20180922','20181009','경기도고양시일산동구호수로 595(장항동)','고양시 일산 호수공원','1725993','flowerfestival.JPG');
 
+delete from point;
+select * from point;
+insert into point values(point_seq.nextval,'test','test','test',22,sysdate,1,10);
+
 create table point(
    po_no number, 
    po_title varchar2(100),      
@@ -158,7 +164,8 @@ create table point(
    po_img varchar2(200),
    po_pt number,      
    po_date date,         
-   po_state number);
+   po_state number,
+   po_count number);
 
 
 // 기본키 쿼리

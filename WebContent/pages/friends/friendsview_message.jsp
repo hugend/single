@@ -9,7 +9,7 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>\
 </head>
 <body>
 	<%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); %>
@@ -22,77 +22,106 @@
 		<div id="container">
 			<%if(loginUser!=null){ %>
 			<jsp:include page="/pages/template/floatingmenu.jsp" />
-			<%} %>
+			
 			<jsp:include page="/pages/friends/friendsmenu.jsp"/>
 			
 			<p align="center">Message List</p>
-
-			<div class="panel panel-default widget">
-				<div class="panel-heading">
-					<span class="glyphicon glyphicon-comment"></span>
-					<h3 class="panel-title">Comments</h3>
-					<span class="label label-default" id="cmtNum">0</span>
-				</div>
-				<div class="panel-body">
-					<ul>
-						<li class="list-group-item">
-							<div class="col-md-2">
-								여기다 사진
-							</div>
-							<div class="col-md-5">
-								여기다 제목
-							</div>
-							<div>
-								여기다 내용
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
 			
 			<%
+				String option = (String) request.getParameter("option");
 				ArrayList<MsgDTO> msgs = (ArrayList<MsgDTO>) request.getAttribute("msgs");
-				if(msgs!=null){
-					int size = msgs.size();	
-					for(int i=0;i<size;i++){
+				int size = msgs.size();	
 			%>
-
-			<%-- 댓글 --%>
-			<div class="row" id="messagesList" style="width: 100%">
-				<div class="panel panel-default widget">
-					<div class="panel-heading">
-						<span class="glyphicon glyphicon-envelope"></span>
-						<h3 class="panel-title">Message</h3>
-						<span class="label label-default" id="cmtNum">0</span>
-					</div>
-					<div class="panel-body">
-						<ul class="list-group">
-								
-							<!-- <span id="cmt"></span> -->
-	 						<li class="list-group-item">
-								<div class="row">
-									<div class="col-xs-2 col-md-1">
-										<img src="/single/images/irene.png" class="img-circle img-responsive" alt="" />
-									</div>
-									<div class="col-xs-10 col-md-11">
-										<div class="comment-text">뭐가 힘든지 말해야죠</div>
-											<div class="mic-info">
-												By: <a href="#">배주현</a> on 2 Jul 2018
-											</div>
-									</div>
-								</div>
-							</li> 
-							
-						</ul>
-						<a href="#" class="btn btn-default btn-sm btn-block" role="button"> 
-							<span class="glyphicon glyphicon-refresh"></span> More
-						</a>
-					</div>
+			
+			<%--보낸쪽지--%>
+			<%
+				if(option.equals("send")){
+			%>
+			<div class="panel panel-default widget">
+				<div class="panel-heading">
+					<span class="glyphicon glyphicon-comment"></span> &nbsp;&nbsp;
+					Send Message
+					<span class="label label-default" id="cmtNum" style="float: right;"><%=size %></span>
 				</div>
-			</div>			
+				<%
+					if(msgs!=null){
+						for(int i=0;i<size;i++){
+				%>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="w3-bar list-group-item">
+						<form action="/single/msg/msg_delete.do">
+							<div class="w3-bar-item">
+								<span class="w3-large" style="display:inline-block; width:100px;" ><%=msgs.get(i).getReceiver() %></span> 
+								<%=msgs.get(i).getMsg_title() %><br/>
+								<span style="display:inline-block; width:100px;"></span> 
+								<%=msgs.get(i).getMsg_txt() %>
+							</div>
+							<div class="action" style="float: right;">
+								<!-- <button type="button" class="btn btn-primary btn-xs" title="Edit">
+									<span class="glyphicon glyphicon-pencil">&nbsp;답장</span>
+								</button> -->
+								<button type="submit" class="btn btn-danger btn-xs" title="Delete" >
+									<span class="glyphicon glyphicon-trash">&nbsp;삭제</span>
+								</button>
+								<input type="hidden" name="msg_no" value="<%=msgs.get(i).getMsg_no()%>" />
+								<input type="hidden" name="option" value="send" />
+							</div>
+						</form>
+						</li>
+					</ul>
+
+				</div>
+				<%
+					}}
+				%>
+			</div>
+			<%} %>
+			
+			<%--받은쪽지--%>
+			<%
+				if(option.equals("receive")){
+			%>
+			<div class="panel panel-default widget">
+				<div class="panel-heading">
+					<span class="glyphicon glyphicon-comment"></span> &nbsp;&nbsp; 
+					Receive Message 
+					<span class="label label-default" id="cmtNum" style="float: right;"><%=size%></span>
+				</div>
+				<%
+					if(msgs!=null){
+						for(int i=0;i<size;i++){
+				%>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="w3-bar list-group-item">
+						<form action="/single/msg/msg_delete.do">
+							<div class="w3-bar-item">
+								<span class="w3-large" style="display:inline-block; width:180px;" ><%=msgs.get(i).getMsg_title() %></span> 
+							</div>
+							<div class="w3-bar-item">
+								<span><%=msgs.get(i).getMsg_txt() %></span></a>
+							</div>
+							<div class="action" style="float: right;">
+								<!-- <button type="button" class="btn btn-primary btn-xs" title="Edit">
+									<span class="glyphicon glyphicon-pencil">&nbsp;답장</span>
+								</button> -->
+								<button type="submit" class="btn btn-danger btn-xs" title="Delete" >
+									<span class="glyphicon glyphicon-trash">&nbsp;삭제</span>
+								</button>
+								<input type="hidden" name="msg_no" value="<%=msgs.get(i).getMsg_no()%>" />
+								<input type="hidden" name="option" value="receive" />
+							</div>
+						</form>
+						</li>
+					</ul>
+
+				</div>
+				<%}} %>
+			</div>
 			<%}} %>
+			</div>
 		</div>
-	</div>
 	
 	<div class="wrapper row3">
 		<jsp:include page="/pages/template/Footer.jsp" />

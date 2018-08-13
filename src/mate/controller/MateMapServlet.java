@@ -20,7 +20,5 @@ public class MateMapServlet extends HttpServlet {
 		request.setAttribute("mapinfo", mapinfo);
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/mate/mate_readview.jsp");
 		rd.forward(request, response);
-		
 	}
-
 }

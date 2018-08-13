@@ -26,11 +26,9 @@ public class VsCmtReadServlet extends HttpServlet {
 
 		int vs_no = Integer.parseInt(request.getParameter("vs_no"));
 
-		// 2. 비지니스 메소드 호출
 		VsService service = new VsServiceImpl();
 		ArrayList<VsCmtDTO> comments = service.read(vs_no);
 
-		// 3. 데이터공유
 		request.setAttribute("comments", comments);
 		
 		JSONObject cmtroot = new JSONObject();

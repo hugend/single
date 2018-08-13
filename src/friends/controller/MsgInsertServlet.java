@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import friends.dto.MsgDTO;
 import friends.service.FriendsService;
 import friends.service.FriendsServiceImpl;
+import member.dao.MemberDAO;
+import member.dto.MemberDTO;
+import member.service.MemberService;
+import member.service.MemberServiceImpl;
 import vs.dto.VsDTO;
 import vs.service.VsService;
 import vs.service.VsServiceImpl;
@@ -37,7 +41,13 @@ public class MsgInsertServlet extends HttpServlet {
 		} else {
 			message = "삽입실패";
 		}
-		System.out.println(message);
+		
+		//쪽지알림
+		MemberService service2 = new MemberServiceImpl();
+		MemberDTO user = service2.getUserInfo(receiver);
+		String email = user.getMe_email();
+		EmailAlarm ea = new EmailAlarm();
+		ea.connectEmail(email,sender);
 		
 		response.sendRedirect("/single/friends/list.do");
 	}

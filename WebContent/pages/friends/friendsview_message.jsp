@@ -97,10 +97,10 @@
 						<li class="w3-bar list-group-item">
 						<form action="/single/msg/msg_delete.do">
 							<div class="w3-bar-item">
-								<span class="w3-large" style="display:inline-block; width:180px;" ><%=msgs.get(i).getMsg_title() %></span> 
-							</div>
-							<div class="w3-bar-item">
-								<span><%=msgs.get(i).getMsg_txt() %></span></a>
+								<span class="w3-large" style="display:inline-block; width:100px;" ><%=msgs.get(i).getSender() %></span> 
+								<%=msgs.get(i).getMsg_title() %><br/>
+								<span style="display:inline-block; width:100px;"></span> 
+								<%=msgs.get(i).getMsg_txt() %>
 							</div>
 							<div class="action" style="float: right;">
 								<!-- <button type="button" class="btn btn-primary btn-xs" title="Edit">

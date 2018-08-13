@@ -21,7 +21,7 @@ public class VsCmtInsertServlet extends HttpServlet {
 		System.out.println("Servlet요청성공");
 		
 		String vs_cmt_txt = request.getParameter("vs_cmt_txt");
-		String me_id = "ocean";
+		String me_id = request.getParameter("me_id");
 		String vs_no = request.getParameter("vs_no");
 		
 		VsService service = new VsServiceImpl();

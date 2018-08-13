@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Single Single</title>
+<title>전체게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- free 추가 -->
 <link rel='stylesheet' id='kboard-skin-thumbnail-css'

@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="/single/common/styles/local/local.css" type="text/css" media="all">
 <script src="/single/common/scripts/jquery.min.js"></script>
 <script src="/single/common/scripts/local/local.js"></script>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 </head>
 <body>
 <%

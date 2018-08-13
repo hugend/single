@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>인증번호를 입력하세요</title>
 <script src="/single/common/scripts/member/register.js"></script>
 </head>
 <body>

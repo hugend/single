@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>포인트마켓</title>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 </head>
 <body>
 <%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); %>

@@ -7,11 +7,12 @@
 <meta charset="EUC-KR">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>single 회원탈퇴</title>
+<title>Single 회원탈퇴</title>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="/single/common/styles/member/withdrawal.css" rel="stylesheet">
 <script src="/single/common/scripts/member/withdrawal.js"></script>
+<link rel="shortcut icon" href="/single/images/favicon.ico">
 </head>
 <body>
 <%MemberDTO loginUser = (MemberDTO)session.getAttribute("loginUser"); %>
